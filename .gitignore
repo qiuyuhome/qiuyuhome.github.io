@@ -6,3 +6,4 @@ _site/
 .DS_Store
 Gemfile.lock
 .idea
+工作笔记.mk
