@@ -8,6 +8,39 @@ keywords: selenium, phantomjs, php-selenium
 
 公司要用爬虫, 所以在我的mac上搭建了2次, 但是与Linux服务器上的搭建还是有区别的, 所以我又一次搭建这个爬虫环境. 哎. 从phper变成了运维. 
 
+## 方案
+用到的模块: php-selenium + php-phantomjs + phantomjs + phpspider
+
+## 参考
+Selenium WebDriver set up with PHP - Selenium PHP traininig:
+https://www.youtube.com/watch?v=554KH7Ok1tA
+
+facebook php-webdriver : 
+https://github.com/facebook/php-webdriver
+https://github.com/Nearsoft/php-selenium-client
+http://facebook.github.io/php-webdriver/latest/index.html
+
+selenium 文档: 
+http://www.kancloud.cn/wangking/selenium/234398
+
+phantomjs 文档:
+http://phantomjs.org/examples/index.html
+
+思路整理:
+https://www.v2ex.com/t/324309
+
+只用方法:
+https://phptrends.com/dig_in/php-webdriver
+
+书籍:
+https://www.amazon.com/Selenium-Webdriver-PHP-Beginners-Guide/dp/1540672972
+
+python-selenium中文手册:
+http://selenium-python-zh.readthedocs.io/en/latest/index.html
+
+
+---
+
 ## 版本说明. 
 
 * CentOS 7.3.1661 minimal
