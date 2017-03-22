@@ -7,3 +7,4 @@ _site/
 Gemfile.lock
 .idea
 工作笔记.mk
+ignore_*
