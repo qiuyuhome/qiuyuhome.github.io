@@ -31,6 +31,7 @@ https://www.v2ex.com/t/324309
 
 只用方法:
 https://phptrends.com/dig_in/php-webdriver
+http://blog.kelu.org/tech/2017/02/16/selenium-tutorial.html
 
 书籍:
 https://www.amazon.com/Selenium-Webdriver-PHP-Beginners-Guide/dp/1540672972
@@ -38,6 +39,8 @@ https://www.amazon.com/Selenium-Webdriver-PHP-Beginners-Guide/dp/1540672972
 python-selenium中文手册:
 http://selenium-python-zh.readthedocs.io/en/latest/index.html
 
+新页面打开链接的方法:
+https://www.oschina.net/question/928852_86769
 
 ---
 
