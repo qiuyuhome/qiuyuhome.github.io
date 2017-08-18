@@ -1,7 +1,7 @@
 ---
 layout: post
 title: shell_script
-categories: shell_script
+categories: Linux
 description: shell_script
 keywords: shell_script
 ---

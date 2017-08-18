@@ -1,7 +1,7 @@
 ---
 layout: post
 title: mac使用brew安装php7
-categories: mac使用brew安装php7
+categories: PHP
 description: mac使用brew安装php7
 keywords: PHP
 ---

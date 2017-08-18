@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ubuntu下的装php
-categories: ubuntu下的装php
+categories: Linux
 description: ubuntu下的装php
 keywords: linux
 ---

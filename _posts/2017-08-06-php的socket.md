@@ -1,7 +1,7 @@
 ---
 layout: post
 title: php的socket
-categories: php的socket
+categories: PHP
 description: php的socket
 keywords: PHP
 ---

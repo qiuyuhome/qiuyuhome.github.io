@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ubuntu下的apt-get
-categories: ubuntu下的apt-get
+categories: Linux
 description: ubuntu下的apt-get
 keywords: linux
 ---

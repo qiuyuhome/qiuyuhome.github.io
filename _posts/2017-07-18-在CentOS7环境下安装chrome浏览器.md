@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 在CentOS7环境下安装chrome浏览器
-categories: 在CentOS7环境下安装chrome浏览器
+categories: Linux
 description: 在CentOS7环境下安装chrome浏览器
 keywords: linux
 ---
