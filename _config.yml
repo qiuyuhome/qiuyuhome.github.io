@@ -110,6 +110,4 @@ google:
 # ---------------- #
 #      Datas       #
 # ---------------- #
-skill_software_keywords: [PHP, C, Python, Design Patterns, JavaScrip, Jquery, Linux, CenOS]
-skill_mobile_app_keywords: [Android, Reverse Engineering]
-skill_windows_keywords: [Win32 SDK, DuiLib, WTL, COM, WinDbg]
+skill_software_keywords: [PHP, HTML, C, JavaScrip, Jquery, Linux, CenOS]
