@@ -105,7 +105,7 @@ lazy_load_another : true
 #    Analytics     #
 # ---------------- #
 google:
-    analytics_id: UA-80669434-1
+    analytics_id: UA-112779025-1
 
 # ---------------- #
 #      Datas       #
