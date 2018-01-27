@@ -1,7 +1,7 @@
 ---
 layout: post
 title: phpstorm的在mac上的快捷键
-categories: tools
+categories: Tools
 description: phpstorm的mac快捷键
 keywords: phpstorm, hot key, 快捷键
 ---
