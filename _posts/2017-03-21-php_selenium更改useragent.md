@@ -1,7 +1,7 @@
 ---
 layout: post
 title: php-selenium更改useragent, 更改浏览器名称
-categories: php
+categories: PHP
 description: php-selenium更改useragent, 更改浏览器名称
 keywords: php, selenium, phantomjs
 ---
