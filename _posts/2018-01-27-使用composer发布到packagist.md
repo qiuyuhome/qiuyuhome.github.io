@@ -91,4 +91,10 @@ class Demo
 ![composer_commit_1](/images/posts/composer_commit_1.png)
 
 
+## 安装一下试试.
+
+![composer_commit](/images/posts/composer_commit.png)
+
+没问题. ok了
+
 > create_time: 2018-01-27 15:55:58
