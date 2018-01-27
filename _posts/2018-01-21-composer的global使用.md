@@ -1,7 +1,7 @@
 ---
 layout: post
 title: composer的global使用
-categories: tool
+categories: Tools
 description: composer的global使用
 keywords: Linux, composer, php
 ---

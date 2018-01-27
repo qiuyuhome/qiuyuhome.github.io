@@ -1,9 +1,9 @@
 ---
 layout: post
 title: 安装PHPMyAdmin
-categories: PHPMyAdmin
+categories: Tools
 description: 安装PHPMyAdmin
-keywords: PHPMyAdmin
+keywords: PHPMyAdmin, php
 ---
 
 # 安装PHPMyAdmin
