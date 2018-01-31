@@ -1,6 +1,6 @@
 ---
 layout: page
-title: QA
+title: Q&A 自问自答
 description: 自问自答
 keywords: 自问自答
 comments: true
