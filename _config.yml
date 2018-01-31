@@ -35,6 +35,10 @@ navs:
     label: categories
 
   -
+    href: /QA/
+    label: Q&A
+
+  -
     href: /wiki/
     label: wiki
 
