@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Links
-description: 没有链接的博客是孤独的
-keywords: 友情链接
+title: QA
+description: 自问自答
+keywords: 自问自答
 comments: true
-menu: 链接
-permalink: /links/
+menu: 自问自答
+permalink: /QA/
 ---
 
 > 人不怕笨, 就怕懒
