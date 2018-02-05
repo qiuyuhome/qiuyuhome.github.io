@@ -1,14 +1,15 @@
 ---
+
 layout: post
 title: systemctl的使用
 categories: Linux
 description: systemctl的使用
 keywords: Linux
----
+--------------------------------------------------------------------------------------------
 
 在项目中, 总会用到各种的服务. 如果这个服务没有封装, 我一般都会用`nohug`来后台运行.
-直到前几天查看一些资料, 发现可以自己写一个配置文件, 就可以使用`systemctl`来控制服务的运行了.
-所以, 我又有事干了.
+直到前几天查看一些资料, 发现可以自己写一个配置文件,
+就可以使用`systemctl`来控制服务的运行了. 所以, 我又有事干了.
 
 ## 参考
 
@@ -20,8 +21,8 @@ keywords: Linux
 
 ## 总结
 
-传统的启动一个服务. 我们可以使用 `nohug` 等命令来实现 `daemon`, 现在可以用 `systemctl` 来实现了.
-而且也更容易查看状态等信息.
+传统的启动一个服务. 我们可以使用 `nohug` 等命令来实现 `daemon`, 现在可以用
+`systemctl` 来实现了. 而且也更容易查看状态等信息.
 
 为了测试. 我特意的在 `centos7` 虚拟机里安装了 `redis` 服务端. 来模拟实战.
 
@@ -105,9 +106,11 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/redis.service t
 [root@CentOS7 bin]#
 ```
 
-上面的命令相当于在 `/etc/systemd/system` 目录添加一个符号链接，指向 `/usr/lib/systemd/system` 里面的 `redis.service` 文件。
+上面的命令相当于在 `/etc/systemd/system` 目录添加一个符号链接，指向
+`/usr/lib/systemd/system` 里面的 `redis.service` 文件。
 
-这是因为开机时，Systemd只执行 `/etc/systemd/system` 目录里面的配置文件。这也意味着，如果把修改后的配置文件放在该目录，就可以达到覆盖原始配置的效果。
+这是因为开机时，Systemd只执行 `/etc/systemd/system`
+目录里面的配置文件。这也意味着，如果把修改后的配置文件放在该目录，就可以达到覆盖原始配置的效果。
 
 再次查看
 
@@ -138,4 +141,18 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/redis.service t
 systemctl daemon-reload
 ```
 
+### 比较
+
+| 任务              | 旧指令                         | 新指令                                                                                            |
+|:-----------------|:------------------------------|:-------------------------------------------------------------------------------------------------|
+| 任务              | 旧指令                         | 新指令                                                                                            |
+| 使某服务自动启动    | chkconfig --level 3 httpd on  | systemctl enable httpd.service                                                                   |
+| 使某服务不自动启动   | chkconfig --level 3 httpd off | systemctl disable httpd.service                                                                  |
+| 检查服务状态       | service httpd status          | systemctl status httpd.service （服务详细信息） systemctl is-active httpd.service （仅显示是否 Active) |
+| 显示所有已启动的服务 | chkconfig --list              | systemctl list-units --type=service                                                              |
+| 启动某服务         | service httpd start           | systemctl start httpd.service                                                                    |
+| 停止某服务         | service httpd stop            | systemctl stop httpd.service                                                                     |
+| 重启某服务         | service httpd restart         | systemctl restart httpd.service                                                                  |
+
 > create_time 2018-02-05 22:43:06
+
