@@ -344,6 +344,16 @@ drwxr-xr-x 12 root root 4.0K 2月   5 12:24 data
 ![image_promethuse_msyql_pr_2](/images/posts/image_promethuse_msyql_pr_2.png)
 
 
+## 使用心得
+
+使用 `plugin` , 用别人发布的模板, 有的会报错. 可能是因为旧版本的函数已经被移除.
+
+```
+https://groups.google.com/forum/#!topic/prometheus-users/P5CZWArvMb0
+count_scalar(...) -> scalar(count(...))
+```
+
+
 
 
 
