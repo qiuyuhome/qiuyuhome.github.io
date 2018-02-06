@@ -156,5 +156,212 @@ Prometheus在记录纯数字时间序列方面表现非常好。它既适用于�
 
 Prometheus它的价值在于可靠性，甚至在很恶劣的环境下，你都可以随时访问它和查看系统服务各种指标的统计信息。 如果你对统计数据需要100%的精确，它并不适用，例如：它不适用于实时计费系统。
 
+## 使用实战
+
+### prometheus/mysqld_exporter
+
+#### 创建msyql用户, 赋予权限
+
+[prometheus/mysqld_exporter](https://github.com/prometheus/mysqld_exporter)
+
+```
+CREATE USER 'exporter'@'localhost' IDENTIFIED BY 'xxx Your password xxx' WITH MAX_USER_CONNECTIONS 3;
+GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* TO 'exporter'@'localhost';
+```
+
+> 说明：建议用户设置最大连接数限制，以避免服务器在重负载情况下监控擦除过载。
+
+
+```
+➜  mysqld_exporter-0.10.0.linux-amd64 ll -a
+总用量 10M
+drwxrwxr-x 2 root root 4.0K 2月   5 15:41 .
+drwxr-xr-x 6 root root 4.0K 1月  31 18:29 ..
+-rw-rw-r-- 1 root root  12K 4月  25 2017 LICENSE
+-rw-r--r-- 1 root root   51 2月   5 15:41 .my.cnf
+-rwxr-xr-x 1 root root  10M 4月  25 2017 mysqld_exporter
+-rw-rw-r-- 1 root root   65 4月  25 2017 NOTICE
+➜  mysqld_exporter-0.10.0.linux-amd64
+```
+
+#### 添加配置文件
+
+```
+➜  mysqld_exporter-0.10.0.linux-amd64 cat .my.cnf
+[client]
+user=prometheus
+password=ThisIsSecret
+➜  mysqld_exporter-0.10.0.linux-amd64
+```
+
+#### 启动进程
+
+```
+➜  mysqld_exporter-0.10.0.linux-amd64 ./mysqld_exporter -config.my-cnf .my.cnf
+INFO[0000] Starting mysqld_exporter (version=0.10.0, branch=master, revision=80680068f15474f87847c8ee8f18a2939a26196a)  source="mysqld_exporter.go:460"
+INFO[0000] Build context (go=go1.8.1, user=root@3b0154cd9e8e, date=20170425-11:24:12)  source="mysqld_exporter.go:461"
+INFO[0000] Listening on :9104                            source="mysqld_exporter.go:479"
+
+```
+
+这么启动进程肯定不行. 那就加入到systemctl中吧.
+
+```
+➜  ~ cd /etc/systemd/system
+➜  system ll
+总用量 32K
+drwxr-xr-x 2 root root 4.0K 2月   5 11:28 basic.target.wants
+lrwxrwxrwx 1 root root   41 2月   5 11:37 dbus-org.fedoraproject.FirewallD1.service -> /usr/lib/systemd/system/firewalld.service
+lrwxrwxrwx 1 root root   37 7月  29 2017 default.target -> /lib/systemd/system/multi-user.target
+drwxr-xr-x 2 root root 4.0K 7月  29 2017 default.target.wants
+drwxr-xr-x 2 root root 4.0K 7月  29 2017 getty.target.wants
+drwxr-xr-x 2 root root 4.0K 2月   5 12:29 multi-user.target.wants
+-rw-r--r-- 1 root root  360 2月   5 14:22 prometheus.service
+drwxr-xr-x 2 root root 4.0K 7月  29 2017 sockets.target.wants
+drwxr-xr-x 2 root root 4.0K 7月  29 2017 sysinit.target.wants
+drwxr-xr-x 2 root root 4.0K 7月  29 2017 system-update.target.wants
+➜  system cp promethues.service promethues_mysql.service
+➜  system ll
+总用量 36K
+drwxr-xr-x 2 root root 4.0K 2月   5 11:28 basic.target.wants
+lrwxrwxrwx 1 root root   41 2月   5 11:37 dbus-org.fedoraproject.FirewallD1.service -> /usr/lib/systemd/system/firewalld.service
+lrwxrwxrwx 1 root root   37 7月  29 2017 default.target -> /lib/systemd/system/multi-user.target
+drwxr-xr-x 2 root root 4.0K 7月  29 2017 default.target.wants
+drwxr-xr-x 2 root root 4.0K 7月  29 2017 getty.target.wants
+drwxr-xr-x 2 root root 4.0K 2月   5 12:29 multi-user.target.wants
+-rw-r--r-- 1 root root  360 2月   5 15:53 prometheus_mysql.service
+-rw-r--r-- 1 root root  360 2月   5 14:22 prometheus.service
+drwxr-xr-x 2 root root 4.0K 7月  29 2017 sockets.target.wants
+drwxr-xr-x 2 root root 4.0K 7月  29 2017 sysinit.target.wants
+drwxr-xr-x 2 root root 4.0K 7月  29 2017 system-update.target.wants
+➜  system pwd
+/etc/systemd/system
+➜  system
+```
+
+编辑 `promethues_mysql.service` 内容如下:
+
+```
+[Unit]
+Description=prometheus_mysql - Prometheus exporter for MySQL server metrics
+
+[Service]
+Type=simple
+ExecStart=/root/prometheus/mysqld_exporter-0.10.0.linux-amd64/mysqld_exporter -config.my-cnf /root/prometheus/mysqld_exporter-0.10.0.linux-amd64/.my.cnf
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+
+[Install]
+WantedBy=multi-user.target
+```
+
+保存后, 测试下.
+
+```
+➜  mysqld_exporter-0.10.0.linux-amd64 systemctl status prometheus_mysql
+● prometheus_mysql.service - prometheus_mysql - Prometheus exporter for MySQL server metrics
+   Loaded: loaded (/etc/systemd/system/prometheus_mysql.service; disabled; vendor preset: disabled)
+   Active: inactive (dead)
+➜  mysqld_exporter-0.10.0.linux-amd64
+```
+
+```
+➜  mysqld_exporter-0.10.0.linux-amd64 systemctl start prometheus_mysql.service
+➜  mysqld_exporter-0.10.0.linux-amd64 systemctl status prometheus_mysql.service
+● prometheus_mysql.service - prometheus_mysql - Prometheus exporter for MySQL server metrics
+   Loaded: loaded (/etc/systemd/system/prometheus_mysql.service; disabled; vendor preset: disabled)
+   Active: active (running) since 一 2018-02-05 16:01:19 CST; 39s ago
+ Main PID: 16791 (mysqld_exporter)
+   CGroup: /system.slice/prometheus_mysql.service
+           └─16791 /root/prometheus/mysqld_exporter-0.10.0.linux-amd64/mysqld_exporter -config.my-cnf /root/prometheus/mysqld_exporter-0.10.0.linux-amd64/.my.cnf
+
+2月 05 16:01:19 ns543625.ip-144-217-78.net systemd[1]: Started prometheus_mysql - Prometheus exporter for MySQL server metrics.
+2月 05 16:01:19 ns543625.ip-144-217-78.net systemd[1]: Starting prometheus_mysql - Prometheus exporter for MySQL server metrics...
+2月 05 16:01:19 ns543625.ip-144-217-78.net mysqld_exporter[16791]: time="2018-02-05T16:01:19+08:00" level=info msg="Starting mysqld_exporter (version=0.10.0, branch=master, revision=80680068f15474f87847c8ee8...orter.go:460"
+2月 05 16:01:19 ns543625.ip-144-217-78.net mysqld_exporter[16791]: time="2018-02-05T16:01:19+08:00" level=info msg="Build context (go=go1.8.1, user=root@3b0154cd9e8e, date=20170425-11:24:12)" source="mysqld_exporter.go:461"
+2月 05 16:01:19 ns543625.ip-144-217-78.net mysqld_exporter[16791]: time="2018-02-05T16:01:19+08:00" level=info msg="Listening on :9104" source="mysqld_exporter.go:479"
+Hint: Some lines were ellipsized, use -l to show in full.
+➜  mysqld_exporter-0.10.0.linux-amd64
+```
+
+ok, 启动成功. 这样以后就可以随意控制服务了.
+
+#### 防火墙开启9104端口.
+
+> 测试查看结果, 或者需要外部访问, 则需要开启这个端口. 如果只是内部使用, 则不用开启.
+
+```
+➜  ~ firewall-cmd --zone=custom --add-port=9104/tcp
+success
+➜  ~
+```
+
+这个时候, 打开浏览器, 访问目标地址, 就可以看到收集的mysql信息了.
+
+![image_promethuse_msyql_76](/images/posts/image_promethuse_msyql_76.png)
+
+#### 修改 `prometheus` 的配置文件.
+
+```
+➜  ~ cd prometheus/prometheus-2.1.0.linux-amd64
+➜  prometheus-2.1.0.linux-amd64 ll
+总用量 105M
+drwxrwxr-x  2 root root 4.0K 1月  19 19:59 console_libraries
+drwxrwxr-x  2 root root 4.0K 1月  19 19:59 consoles
+drwxr-xr-x 12 root root 4.0K 2月   5 12:24 data
+-rw-rw-r--  1 root root  12K 1月  19 19:59 LICENSE
+-rw-rw-r--  1 root root 2.8K 1月  19 19:59 NOTICE
+-rwxr-xr-x  1 root root  63M 1月  19 20:02 prometheus
+-rw-rw-r--  1 root root  928 1月  19 19:59 prometheus.yml
+-rwxr-xr-x  1 root root  42M 1月  19 20:04 promtool
+➜  prometheus-2.1.0.linux-amd64
+```
+
+添加:
+
+```
+  - job_name: 'msyql'
+    static_configs:
+      - targets: ['localhost:9104']
+```
+
+重启服务:
+
+```
+➜  mysqld_exporter-0.10.0.linux-amd64 systemctl restart prometheus.service
+```
+
+![image_promethuse_msyql_pr](/images/posts/image_promethuse_msyql_pr.png)
+
+### 添加其他的类似. 这里就不列举了.
+
+
+### 最后的效果图
+
+![image_promethuse_msyql_pr_1](/images/posts/image_promethuse_msyql_pr_1.png)
+
+
+![image_promethuse_msyql_pr_2](/images/posts/image_promethuse_msyql_pr_2.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
