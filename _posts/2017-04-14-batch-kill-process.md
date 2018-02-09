@@ -1,0 +1,40 @@
+---
+layout: post
+title: 批量杀死进程
+categories: PHP
+description: 批量杀死进程
+keywords: 批量杀死进程
+---
+
+```
+ps -ef | grep phantomjs | grep -v grep | cut -c 9-15 | xargs kill -9
+```
+
+```
+ps -ef | grep selenium | grep -v grep | cut -c 9-15 | xargs kill -9
+```
+
+```
+ps -ef | grep 'php run.php detail' | grep -v grep | cut -c 9-15 | xargs kill -9
+```
+
+```
+ps -ef | grep '/home/spider/instance/amazon/chromedriver --port=' | grep -v grep | cut -c 9-15 | xargs kill -9
+```
+
+```
+ps -ef | grep 'chrome' | grep -v grep | cut -c 9-15 | xargs kill -9
+```
+
+```
+java -jar ./selenium-server-standalone-3.3.1.jar -port 5555
+ps -ef | grep 'java -jar ./selenium-server-standalone-3.3.1.jar -port 5555' | grep -v grep | cut -c 9-15 | xargs kill -9
+```
+
+
+ps -ef | grep 'java -jar ./selenium-server-standalone-3.3.1.jar -port 5555' | grep -v grep | cut -c 9-15 | xargs kill -9
+
+
+ps -ef | grep 'selenium' | grep -v grep | cut -c 9-15 | xargs kill -9
+
+

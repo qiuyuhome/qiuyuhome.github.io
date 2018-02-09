@@ -1,0 +1,20 @@
+---
+layout: post
+title: linux多进程报错
+categories: Linux
+description: linux多进程报错
+keywords: linux
+---
+
+```
+linux sh: fork: retry: No child processes
+```
+
+```
+ulimit # 查看最大进程数量.
+```
+
+
+
+
+
