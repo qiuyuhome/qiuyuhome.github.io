@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-# url: http://mazhuang.org
+url: http://www.qiuyuhome.com
 date_format: "ordinal"
 title: QiuYu Blog
 subtitle: "The record bit by bit, are the mark of my growth"
