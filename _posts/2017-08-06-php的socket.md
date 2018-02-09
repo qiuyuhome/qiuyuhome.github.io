@@ -20,7 +20,7 @@ keywords: PHP
 
 **客户端代码**
 
-```
+```php
 <?php
 
 error_reporting(E_ALL);
@@ -69,7 +69,7 @@ echo "关闭OK\n";
 
 **服务端代码**
 
-```
+```php
 <?php
 ini_set('default_socket_timeout', -1);  //不超时
 
