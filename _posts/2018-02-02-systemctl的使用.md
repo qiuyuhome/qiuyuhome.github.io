@@ -29,7 +29,7 @@ keywords: Linux
 
 ### 常用命令
 
-```
+```bash
 # 列出正在运行的 Unit
 $ systemctl list-units
 
@@ -48,7 +48,7 @@ $ systemctl list-units --type=service
 
 例如我们忘了自定义服务的全部名称, 只记得一部分. 可以这么查询:
 
-```
+```bash
 [root@CentOS7 redis-4.0.8]# systemctl list-unit-files --type=service | grep console
 console-getty.service                         disabled
 console-shell.service                         disabled
@@ -63,11 +63,11 @@ systemd-vconsole-setup.service                static
 
 在 `/etc/systemd/system`下创建文件. 必须以 `.service` 作为后缀
 
-```
+```bash
 [root@CentOS7 system]# vim /etc/systemd/system/redis.service
 ```
 
-```
+```bash
 [Unit]
 Description=Redis server daemon
 
@@ -87,7 +87,7 @@ WantedBy=multi-user.target
 
 配置完毕以后. 查看一下.
 
-```
+```bash
 [root@CentOS7 system]# systemctl status redis.service
 ● redis.service - Redis server daemon
    Loaded: loaded (/etc/systemd/system/redis.service; disabled; vendor preset: disabled)
@@ -99,7 +99,7 @@ WantedBy=multi-user.target
 
 #### 设置开机启动
 
-```
+```bash
 [root@CentOS7 bin]# systemctl enable redis.service
 Created symlink from /etc/systemd/system/multi-user.target.wants/redis.service to /etc/systemd/system/redis.service.
 [root@CentOS7 bin]#
@@ -113,7 +113,7 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/redis.service t
 
 再次查看
 
-```
+```bash
 [root@CentOS7 system]# systemctl status redis.service
 ● redis.service - Redis server daemon
    Loaded: loaded (/etc/systemd/system/redis.service; enabled; vendor preset: disabled)
@@ -126,7 +126,7 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/redis.service t
 
 #### 运行自定义服务
 
-```
+```bash
 [root@CentOS7 system]# systemctl start redis.service
 [root@CentOS7 system]# systemctl stop redis.service
 [root@CentOS7 system]# systemctl restart redis.service
@@ -136,7 +136,7 @@ Created symlink from /etc/systemd/system/multi-user.target.wants/redis.service t
 
 如果修改了, 要执行一下命令.
 
-```
+```bash
 systemctl daemon-reload
 ```
 

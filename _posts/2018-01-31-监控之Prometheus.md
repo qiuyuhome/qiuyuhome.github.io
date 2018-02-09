@@ -164,7 +164,7 @@ Prometheus它的价值在于可靠性，甚至在很恶劣的环境下，你都�
 
 [prometheus/mysqld_exporter](https://github.com/prometheus/mysqld_exporter)
 
-```
+```sql
 CREATE USER 'exporter'@'localhost' IDENTIFIED BY 'xxx Your password xxx' WITH MAX_USER_CONNECTIONS 3;
 GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* TO 'exporter'@'localhost';
 ```
@@ -172,7 +172,7 @@ GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* TO 'exporter'@'localhost';
 > 说明：建议用户设置最大连接数限制，以避免服务器在重负载情况下监控擦除过载。
 
 
-```
+```bash
 ➜  mysqld_exporter-0.10.0.linux-amd64 ll -a
 总用量 10M
 drwxrwxr-x 2 root root 4.0K 2月   5 15:41 .
@@ -186,7 +186,7 @@ drwxr-xr-x 6 root root 4.0K 1月  31 18:29 ..
 
 #### 添加配置文件
 
-```
+```bash
 ➜  mysqld_exporter-0.10.0.linux-amd64 cat .my.cnf
 [client]
 user=prometheus
@@ -196,7 +196,7 @@ password=ThisIsSecret
 
 #### 启动进程
 
-```
+```bash
 ➜  mysqld_exporter-0.10.0.linux-amd64 ./mysqld_exporter -config.my-cnf .my.cnf
 INFO[0000] Starting mysqld_exporter (version=0.10.0, branch=master, revision=80680068f15474f87847c8ee8f18a2939a26196a)  source="mysqld_exporter.go:460"
 INFO[0000] Build context (go=go1.8.1, user=root@3b0154cd9e8e, date=20170425-11:24:12)  source="mysqld_exporter.go:461"
@@ -206,7 +206,7 @@ INFO[0000] Listening on :9104                            source="mysqld_exporter
 
 这么启动进程肯定不行. 那就加入到systemctl中吧.
 
-```
+```bash
 ➜  ~ cd /etc/systemd/system
 ➜  system ll
 总用量 32K
@@ -241,7 +241,7 @@ drwxr-xr-x 2 root root 4.0K 7月  29 2017 system-update.target.wants
 
 编辑 `promethues_mysql.service` 内容如下:
 
-```
+```vim
 [Unit]
 Description=prometheus_mysql - Prometheus exporter for MySQL server metrics
 
@@ -257,7 +257,7 @@ WantedBy=multi-user.target
 
 保存后, 测试下.
 
-```
+```bash
 ➜  mysqld_exporter-0.10.0.linux-amd64 systemctl status prometheus_mysql
 ● prometheus_mysql.service - prometheus_mysql - Prometheus exporter for MySQL server metrics
    Loaded: loaded (/etc/systemd/system/prometheus_mysql.service; disabled; vendor preset: disabled)
@@ -265,7 +265,7 @@ WantedBy=multi-user.target
 ➜  mysqld_exporter-0.10.0.linux-amd64
 ```
 
-```
+```bash
 ➜  mysqld_exporter-0.10.0.linux-amd64 systemctl start prometheus_mysql.service
 ➜  mysqld_exporter-0.10.0.linux-amd64 systemctl status prometheus_mysql.service
 ● prometheus_mysql.service - prometheus_mysql - Prometheus exporter for MySQL server metrics
@@ -290,7 +290,7 @@ ok, 启动成功. 这样以后就可以随意控制服务了.
 
 > 测试查看结果, 或者需要外部访问, 则需要开启这个端口. 如果只是内部使用, 则不用开启.
 
-```
+```bash
 ➜  ~ firewall-cmd --zone=custom --add-port=9104/tcp
 success
 ➜  ~
@@ -302,7 +302,7 @@ success
 
 #### 修改 `prometheus` 的配置文件.
 
-```
+```bash
 ➜  ~ cd prometheus/prometheus-2.1.0.linux-amd64
 ➜  prometheus-2.1.0.linux-amd64 ll
 总用量 105M
@@ -319,7 +319,7 @@ drwxr-xr-x 12 root root 4.0K 2月   5 12:24 data
 
 添加:
 
-```
+```vim
   - job_name: 'msyql'
     static_configs:
       - targets: ['localhost:9104']
@@ -327,7 +327,7 @@ drwxr-xr-x 12 root root 4.0K 2月   5 12:24 data
 
 重启服务:
 
-```
+```bash
 ➜  mysqld_exporter-0.10.0.linux-amd64 systemctl restart prometheus.service
 ```
 
@@ -348,7 +348,7 @@ drwxr-xr-x 12 root root 4.0K 2月   5 12:24 data
 
 使用 `plugin` , 用别人发布的模板, 有的会报错. 可能是因为旧版本的函数已经被移除.
 
-```
+```bash
 https://groups.google.com/forum/#!topic/prometheus-users/P5CZWArvMb0
 count_scalar(...) -> scalar(count(...))
 ```
