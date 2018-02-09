@@ -6,6 +6,10 @@ description: phpDoc描述数组
 keywords: PHP, phpDoc, Array
 ---
 
+psr的规范中找不到数组应该如何的注释. 只能查一些第三方的资料. 来看看别人是如何注释数组的. 特此记录.
+
+## 参考
+
 [psr-5 github](https://github.com/phpDocumentor/fig-standards/blob/master/proposed/phpdoc.md)
 
 [查看 wiki](https://zh.wikipedia.org/wiki/PHPDoc)

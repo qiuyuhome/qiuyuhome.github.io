@@ -6,7 +6,9 @@ description: 版本号的规范
 keywords: version, composer
 ---
 
-## refer
+版本号是随意弄的么? NO, 是有指定意义的. SO, 了解还是有必要的.
+
+## 参考
 
 今天闲着没事, 翻看技术资料. 看到了一篇文章, 很有意义.
 

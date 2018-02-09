@@ -6,21 +6,18 @@ description: 计算机中常见的英文以及缩写
 keywords: 计算机
 ---
 
+计算机中有很多的单词是缩写的形式, 根本看不懂. 我只能把我知道的记录下来.
 
-
-
-```txt
-1.  print_f      f是format的缩写. 
-2.  %d           d是decimal(十进制数)的缩写.
-3.  statement    语句
-4.  \n           new line.    
-5.  escape       转义
-6.  \a           alert
-7.  declaration  声明
-8.  int          integer    
-9.  puts         其中的s, 是string
-   
-   
-```
+| 缩写         | 意义                      |
+|:------------|:-------------------------|
+| print_f     | f是format的缩写.           |
+| %d          | d是decimal(十进制数)的缩写. |
+| statement   | 语句                      |
+| \n          | new line.                |
+| escape      | 转义                      |
+| \a          | alert                    |
+| declaration | 声明                      |
+| int         | integer                  |
+| puts        | 其中的s, 是string          |
 
 

@@ -1,4 +1,14 @@
+---
+layout: post
+title: Laravel学习记录
+categories: PHP
+description: Laravel学习记录
+keywords: PHP
+---
 
+随着学习的深入, 越来越觉得我用的 TP 框架有些过时了. 用的是 3.2.3 的版本, 不过时才怪.
+所以本着学习的精神, 又折腾起了 laravel, 很多的思想我都没有接触过, 所以学习成本很高.
+但这个是好事, 说明我的提升空间很大(自我安慰), 哎, 又是一个长期的战斗.
 
 
 # laravel中的几个重要概念

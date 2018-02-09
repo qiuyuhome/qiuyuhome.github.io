@@ -6,9 +6,10 @@ description: composer的global使用
 keywords: Linux, composer, php
 ---
 
-# composer的global使用
+之前一直很羡慕 `python` 的 `pip`, 羡慕 `nodejs` 的 `npm`, 羡慕 `ruby` 的 `gem`.
+现在不用羡慕了. `php` 也有了自己的包管理. 而且, 真的很强大哦. 那就是 `composer`.
 
-## refer
+## 参考
 
 [https://www.chrisyue.com/use-composer-to-install-php-libs-elegantly.html#comment-7525](https://www.chrisyue.com/use-composer-to-install-php-libs-elegantly.html#comment-7525)
 
@@ -16,11 +17,7 @@ keywords: Linux, composer, php
 
 这里用`php_codesniffer`来举例说明.
 
-
-
-
-
-``` bash
+```bash
 ➜  ~ composer global require "squizlabs/php_codesniffer=*"
 Changed current directory to /Users/qiuyu/.composer
 ./composer.json has been updated
@@ -33,7 +30,7 @@ Generating autoload files
 ➜  ~
 ```
 
-```
+```bash
 ➜  bin pwd
 /Users/qiuyu/.composer/vendor/bin
 ➜  bin ll
@@ -46,13 +43,13 @@ lrwxr-xr-x  1 qiuyu  staff    38B  1 21 13:15 phpcs -> ../squizlabs/php_codesnif
 
 编辑配置文件
 
-```
+```bash
 vim ~/.bash_profile
 ```
 
 加入以下命令
 
-```
+```bash
 # Setting PATH for composer/bin
 PATH="/Users/qiuyu/.composer/vendor/bin:${PATH}"
 export PATH
@@ -60,7 +57,7 @@ export PATH
 
 现在已经加入了环境变量, 在任意目录执行命令. 都可以了.
 
-```
+```bash
 ➜  ~ phpcs --version
 PHP_CodeSniffer version 3.2.2 (stable) by Squiz (http://www.squiz.net)
 ➜  ~

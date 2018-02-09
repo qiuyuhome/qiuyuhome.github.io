@@ -6,6 +6,8 @@ description: smarty中的foreach遍历和时间转换
 keywords: smarty
 ---
 
+使用原生的 smart 模板, 遍历数组的使用方法. 虽然用的不多, 但是也得知道.
+
 ## 在smarty中使用foreach
 
 ```html
@@ -17,27 +19,24 @@ keywords: smarty
     <body>
      	<center><h1>demo</h1></center>
      	<hr/>
-			<div>
-				<{foreach from = $lists item = list name = name}>
-				<p>
-					<!-- total是这个数组的总数, 相当于php中的count($lists) -->
-					<{$smarty.foreach.name.total}> | 
+        <div>
+            <{foreach from = $lists item = list name = name}>
+            <p>
+                <!-- total是这个数组的总数, 相当于php中的count($lists) -->
+                <{$smarty.foreach.name.total}> | 
 
-					<!-- index是这个数组的数字索引, 从0开始 -->
-					<{$smarty.foreach.name.index}> | 
+                <!-- index是这个数组的数字索引, 从0开始 -->
+                <{$smarty.foreach.name.index}> | 
 
-					<!-- interation也是数字索引, 不同的是, 他是从1开始 -->
-					<{$smarty.foreach.name.iteration}> | 
-					
-					<!-- first是第一个元素  lasts是最后一个元素-->
-					<{$smarty.foreach.name.first}><{$smarty.foreach.name.last}>
-				</p>
-				<{/foreach}>
-			</div>
+                <!-- interation也是数字索引, 不同的是, 他是从1开始 -->
+                <{$smarty.foreach.name.iteration}> | 
+                
+                <!-- first是第一个元素  lasts是最后一个元素-->
+                <{$smarty.foreach.name.first}><{$smarty.foreach.name.last}>
+            </p>
+            <{/foreach}>
+        </div>
     </body>
-    <script type="text/javascript" charset="utf-8">
-		
-	</script>
 </html>
 ```
 
