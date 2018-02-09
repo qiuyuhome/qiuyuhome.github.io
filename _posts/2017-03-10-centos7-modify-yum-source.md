@@ -7,7 +7,7 @@ keywords: yum, CeontOS
 ---
 
 
-# centos7 更改yum源
+centos7 更改yum源
 
 进入yum源的目录
 `cd /etc/yum.repos.d`
@@ -18,7 +18,7 @@ keywords: yum, CeontOS
 把原来的基础源给备份一下啊. 以防出现问题. 
 `mv CentOS-Base.repo CentOS-Base.repo.bak`
 
-```
+```bash
 [root@CentOS7 local]# cd /etc/yum.repos.d
 [root@CentOS7 yum.repos.d]# ll
 总用量 28
@@ -49,7 +49,7 @@ keywords: yum, CeontOS
 
 下载完成后, 就变成了基础源. 
 
-```
+```bash
 [root@CentOS7 yum.repos.d]# ll
 总用量 32
 -rw-r--r--. 1 root root 2573 5月  15 2015 CentOS-Base.repo
@@ -65,7 +65,7 @@ keywords: yum, CeontOS
 再下载epel repo源源. 
 `wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo`
 
-```
+```bash
 [root@CentOS7 yum.repos.d]# ll
 总用量 36
 -rw-r--r--. 1 root root 2573 5月  15 2015 CentOS-Base.repo
@@ -81,7 +81,7 @@ keywords: yum, CeontOS
 
 清理缓存
 
-```
+```bash
 [root@CentOS7 yum.repos.d]# yum clean all
 已加载插件：fastestmirror
 正在清理软件源： base epel extras updates
@@ -91,7 +91,7 @@ Cleaning up list of fastest mirrors
 
 生成缓存
 
-```
+```bash
 [root@CentOS7 yum.repos.d]# yum makecache
 已加载插件：fastestmirror
 http://mirrors.aliyuncs.com/centos/7/os/x86_64/repodata/repomd.xml: [Errno 12] Timeout on http://mirrors.aliyuncs.com/centos/7/os/x86_64/repodata/repomd.xml: (28, 'Connection timed out after 30001 milliseconds')
@@ -132,7 +132,7 @@ Determining fastest mirrors
 更改完yum源以后, 使用yum安装软件,会报错. 
 有warnning, 如下
 
-```
+```bash
 compat-poppler022-qt-0.22.5-4. FAILED                                          [==                                                               ] 616 kB/s |  11 MB  00:08:36 ETA
 http://mirrors.163.com/centos/7/os/x86_64/Packages/compat-poppler022-qt-0.22.5-4.el7.x86_64.rpm: [Errno -1] 软件包与预期下载的不符。建议：运行 yum --enablerepo=base clean metadata
 正在尝试其它镜像

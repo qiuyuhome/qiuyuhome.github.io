@@ -8,7 +8,6 @@ keywords: Linux, /etc/profile
 
 修改/etc/profile文件后, 命令不可用了, 怎么办呢. 
 
-# 修改/etc/profile文件后, 命令不可用的解决方法
 
 **前因:**
 想要添加一个环境变量. 

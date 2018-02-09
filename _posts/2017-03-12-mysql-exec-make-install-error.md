@@ -6,11 +6,11 @@ description: mysql执行make intall后报错
 keywords: Linux, MySQL
 ---
 
-# mysql执行make intall后报错: CMake Error at libmysqld/examples/cmake_install.cmake:58 (FILE): file INSTALL cannot copy file
+mysql执行make intall后报错: CMake Error at libmysqld/examples/cmake_install.cmake:58 (FILE): file INSTALL cannot copy file
 
 在编译安装mysql的时候, 会报错. 一直找不到原因, 原本以为是因为权限的问题, 但是我用的是root用户. 应该没问题的. 这里吐槽一下. baidu和google真的不是一个等级的. 我用百度搜索答案, 根本找不到, 用google, 直接就找到了我想要的答案. 浪费了我一天的时间, 因为编译一次就需要50分钟. 靠的. 
 
-```
+```bash
 CMake Error at libmysqld/examples/cmake_install.cmake:58 (FILE):
   file INSTALL cannot copy file
   "/usr/local/src/mysql-5.6.35/libmysqld/examples/mysqltest_embedded" to
@@ -27,7 +27,7 @@ http://blog.itpub.net/27099995/viewspace-1994443/
 
 我先在原来的8G磁盘空间下再次安装mysql, 在安装之前, 我先查了一下磁盘空间的大小. 
 
-```
+```bash
 [root@CentOS7 ~]# df -hl
 文件系统        容量  已用  可用 已用% 挂载点
 /dev/sda2       6.0G  3.9G  2.2G   65% /
@@ -40,7 +40,7 @@ tmpfs            99M     0   99M    0% /run/user/0
 
 然后我就开始编译安装mysql5.6, 果然还是存在这个错误. 
 
-```
+```bash
 -- Installing: /usr/local/mysql/bin/mysqltest_embedded
 -- Installing: /usr/local/mysql/bin/mysql_client_test_embedded
 CMake Error at libmysqld/examples/cmake_install.cmake:74 (FILE):
@@ -57,7 +57,7 @@ make: *** [install] 错误 1
 
 然后我就再查看一下磁盘的大小
 
-```
+```bash
 [root@CentOS7 /]# df -hl
 文件系统        容量  已用  可用 已用% 挂载点
 /dev/sda2       6.0G  6.0G   20K  100% /

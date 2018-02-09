@@ -6,13 +6,9 @@ description: ubuntu下的apt-get
 keywords: linux
 ---
 
-## 一，什么的是apt-get
-
 高级包装工具（英语：Advanced Packaging Tools,简称：APT）是Debian及其衍生发行版（如：ubuntu）的软件包管理器。APT可以自动下载，配置，安装二进制或者源代码格式的软件包，因此简化了 Unix系统上管理软件的过程,apt-get命令一般需要root权限执行，所以一般跟着sudo命令。它根yum ,pacman,installpkg等性质差不多，是系统软件的管理工具。会用其中一种基本上都会用了。
 
-## 二，apt-get中文参数
-
-```
+```bash
 用法：apt-get [选项] 命令  
  apt-get [选项] install|remove pkg1 [pkg2 ...]  
  apt-get [选项] source pkg1 [pkg2 ...]  
@@ -52,10 +48,7 @@ apt-get 是一个下载安装软件包的简单命令行接口。
  -o=? 设置自定的配置选项，如 -o dir::cache=/tmp  
 ```
  
- 
-## 三，apt-get 常用实例
-
-```
+```bash
 apt-cache search packagename 搜索包
 apt-cache show packagename 获取包的相关信息，如说明、大小、版本等
 apt-get install packagename 安装包

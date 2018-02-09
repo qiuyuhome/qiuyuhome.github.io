@@ -15,7 +15,7 @@ keywords: CSS, CSS选择器, CssSelecter
 
 ## 1. *
 
-```
+```css
 * {  
  margin: 0;  
  padding: 0;  
@@ -28,7 +28,7 @@ keywords: CSS, CSS选择器, CssSelecter
 
 \* 也能作为子选择符使用。
 
-```
+```css
 #container * {  
  border: 1px solid black;  
 } 
@@ -48,7 +48,7 @@ keywords: CSS, CSS选择器, CssSelecter
 
 ## 2. #X
 
-```
+```css
 #container {  
    width: 960px;  
    margin: auto;  
@@ -73,7 +73,7 @@ Opera
 
 ## 3. .X
 
-```
+```css
 .error {  
   color: red;  
 }
@@ -94,7 +94,7 @@ Opera
 
 ## 4. X Y
 
-```
+```css
 li a {  
   text-decoration: none;  
 }
@@ -117,7 +117,7 @@ Opera
 
 ## 5. X
 
-```
+```css
 a { color: red; }
 ul { margin-left: 0; }
 ```
@@ -137,7 +137,7 @@ Opera
 
 ## 6. X:visited and X:link
 
-```
+```css
 a:link { color: red; }  
 a:visted { color: purple; }
 ```
@@ -158,7 +158,7 @@ Opera
 
 ## 7. X + Y
 
-```
+```css
 ul + p {  
    color: red;  
 } 
@@ -178,7 +178,7 @@ Opera
 
 ## 8. X > Y
 
-```
+```css
 div#container > ul {  
   border: 1px solid black;  
 }  
@@ -186,7 +186,7 @@ div#container > ul {
 
 X Y和X > Y之间的不同点是后者只选择直接子代。例如，考虑如下的标记。
 
-```
+```html
 <div id="container">  
    <ul>  
       <li> List Item  
@@ -217,7 +217,7 @@ Opera
 
 ## 9. X ~ Y
 
-```
+```css
 ul ~ p {  
    color: red;  
 }
@@ -237,7 +237,7 @@ Opera
 
 ## 10. X[title]
 
-```
+```css
 a[title] {  
    color: green;  
 }
@@ -257,7 +257,7 @@ Opera
 
 ## 11. X[href=”foo”]
 
-```
+```css
 a[href="http://net.tutsplus.com"] {  
   color: #1f6053; /* nettuts green */  
 } 
@@ -280,7 +280,7 @@ Opera
 
 ## 12. X[href*=”nettuts”]
 
-```
+```css
 a[href*="tuts"] {  
   color: #1f6053; /* nettuts green */  
 } 
@@ -302,7 +302,7 @@ Opera
 
 ##13. X[href^=”http”]
 
-```
+```css
 a[href^="http"] {  
    background: url(path/to/external/icon.png) no-repeat;  
    padding-left: 10px;  
@@ -328,7 +328,7 @@ Opera
 
 ## 14. X[href$=”.jpg”]
 
-```
+```css
 a[href$=".jpg"] {  
    color: red;  
 }  
@@ -348,7 +348,7 @@ Opera
 
 ## 15. X[data-*=”foo”]
 
-```
+```css
 a[data-filetype="image"] {  
    color: red;  
 }
@@ -356,7 +356,7 @@ a[data-filetype="image"] {
 
 回顾最近一条，我们如何能包含各种图片类型:png,jpeg,jpg,gif?很容易想到，我们能通过多个选择器来不是，像这样：
 
-```
+```css
 a[href$=".jpg"],  
 a[href$=".jpeg"],  
 a[href$=".png"],  
@@ -370,7 +370,7 @@ a[href$=".gif"] {
 `<a href="path/to/image.jpg" data-filetype="image"> Image Link </a>`  
 这样关联后，我们就能使用标准的属性选择器来指定这些链接啦。看下面：
 
-```
+```css
 a[data-filetype="image"] {  
    color: red;  
 }
@@ -388,7 +388,7 @@ Opera
 
 ## 16. X[foo~=”bar”]
 
-```
+```css
 a[data-info~="external"] {  
    color: red;  
 }  
@@ -405,7 +405,7 @@ a[data-info~="image"] {
 `<a href="path/to/image.jpg" data-info="external image"> Click Me, Fool </a> ` 
 有了这样适当的标记，通过使用 ~ 属性选择器的技巧，我们就可以指向任何具有着两种属性的任何一种啦。
 
-```
+```css
 /* Target data-info attr that contains the value "external" */  
 a[data-info~="external"] {  
    color: red;  
@@ -431,7 +431,7 @@ Opera
 
 ## 17. X:checked
 
-```
+```css
 input[type=radio]:checked {  
    border: 1px solid black;  
 }
@@ -455,7 +455,7 @@ Opera
 
 很多第一次使用是因为他们需要对`clear-fix`进行改进。
 
-```
+```css
 .clearfix:after {  
     content: "";  
     display: block;  
@@ -466,7 +466,7 @@ Opera
 }  
 ```
 
-```
+```css
 .clearfix {   
    *display: inline-block;   
    _height: 1%;  
@@ -491,7 +491,7 @@ Opera
 
 ##19. X:hover
 
-```
+```css
 div:hover {  
   background: #e3e3e3;  
 }
@@ -502,7 +502,7 @@ div:hover {
 记住啦，较old版本的IE，只能在锚点标签后使用这个`hover`。
 这个选择器你用得最多的情况，估计可能就是在锚点的悬停时加个`border-bottom`啦。
 
-```
+```css
 a:hover {  
  border-bottom: 1px solid black;  
 }
@@ -522,7 +522,7 @@ Opera
 
 ##20. X:not(selector)
 
-```
+```css
 div:not(#container) {  
    color: blue;  
 }
@@ -532,7 +532,7 @@ div:not(#container) {
 
 如果我想选择除了p以外的所有元素，我可以这么做：
 
-```
+```css
 *:not(p) {  
   color: green;  
 }
@@ -550,7 +550,7 @@ Opera
 
 ##21. X::pseudoElement
 
-```
+```css
 p::first-line {  
    font-weight: bold;  
    font-size: 1.2em;  
@@ -562,7 +562,7 @@ p::first-line {
 伪元素由两个冒号组成：`::`
 指定p的第一个字符的样式
 
-```
+```css
 p::first-letter {  
    float: left;  
    font-size: 2em;  
@@ -578,7 +578,7 @@ p::first-letter {
 
 **指定p的首行样式 **
 
-```
+```css
 p::first-line {  
    font-weight: bold;  
    font-size: 1.2em;  
@@ -599,7 +599,7 @@ Opera
 
 ## 22. X:nth-child(n)
 
-```
+```css
 li:nth-child(3) {  
    color: red;  
 } 
@@ -622,7 +622,7 @@ Safari
 
 ## 23. X:nth-last-child(n)
 
-```
+```css
 li:nth-last-child(2) {  
    color: red;  
 } 
@@ -644,7 +644,7 @@ Opera
 
 ## 24. X:nth-of-type(n)
 
-```
+```css
 ul:nth-of-type(3) {  
    border: 1px solid black;  
 }
@@ -665,7 +665,7 @@ Safari
 
 ## 25. X:nth-last-of-type(n)
 
-```
+```css
 ul:nth-last-of-type(3) {  
    border: 1px solid black;  
 } 
@@ -685,7 +685,7 @@ Opera
 
 ## 26. X:first-child
 
-```
+```css
 ul li:first-child {  
    border-top: none;  
 }  
@@ -710,7 +710,7 @@ Opera
 
 ## 27. X:last-child
 
-```
+```css
 ul > li:last-child {  
    color: green;  
 }
@@ -724,7 +724,7 @@ ul > li:last-child {
 
 标记
 
-```
+```css
 <ul>  
    <li> List Item </li>  
    <li> List Item </li>  
@@ -736,7 +736,7 @@ ul > li:last-child {
 
 Css
 
-```
+```css
 ul {  
  width: 200px;  
  background: #292929;  
@@ -755,7 +755,7 @@ li {
 这个样式会设置一个背景，删除浏览器默认的ul的padding值，并定义边框给每一个li来提供一点深度。
 如上图所示，唯一的问题是最上面的边框和最下面的边框看起来有点儿怪。让我们来使用`:first-child`和`:last-child`来解决这个问题。
 
-```
+```css
 li:first-child {  
     border-top: none;  
 }  
@@ -778,7 +778,7 @@ Opera
 
 ## 28. X:only-child
 
-```
+```css
 div p:only-child {  
    color: red;  
 }
@@ -790,7 +790,7 @@ div p:only-child {
 
 让我们来假定下面的标记。
 
-```
+```html
 <div><p> My paragraph here. </p></div>  
   
 <div>  
@@ -813,7 +813,7 @@ Opera
 
 ## 29. X:only-of-type
 
-```
+```css
 li:only-of-type {  
    font-weight: bold;  
 } 
@@ -823,7 +823,7 @@ li:only-of-type {
 
 首先，取决于你想怎样完成这一目标。你可以使用 ul li，不过，这回选择所有li元素。唯一的办法是使用`only-of-type`。
 
-```
+```css
 ul > li:only-of-type {  
    font-weight: bold;  
 }
@@ -847,7 +847,7 @@ Opera
 
 为了更好地理解它，让我们来测试一下啊。拷贝下面的标记到你的编辑器。
 
-```
+```html
 <div>  
    <p> My paragraph here. </p>  
    <ul>  
@@ -868,7 +868,7 @@ Opera
 
 有很多办法能搞定这个测试。我们回顾其中一小部分。以使用`first-of-type`开始。
 
-```
+```css
 ul:first-of-type > li:nth-child(2) {  
    font-weight: bold;  
 } 
@@ -880,7 +880,7 @@ ul:first-of-type > li:nth-child(2) {
 
 另一个可行的办法是毗邻选择器。
 
-```
+```css
 p + ul li:last-child {  
    font-weight: bold;  
 } 
@@ -892,7 +892,7 @@ p + ul li:last-child {
 
 我们可以随心所欲滴选择这些选择器。
 
-```
+```css
 ul:first-of-type li:nth-last-child(1) {  
    font-weight: bold;     
 }

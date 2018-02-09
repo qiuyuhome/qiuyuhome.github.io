@@ -6,7 +6,7 @@ description: markdown的语法, 以及在mweb中的使用方法.
 keywords: markdown, mweb
 ---
 
-# Markdown 语法
+markdown 是写作的利器. 语法也很简单. 如果你还在用 word 记录你的笔记. 那你就out了.
 
 ## Markdown 的设计哲学
 

@@ -30,3 +30,7 @@ keywords: Linux
     10211 Wed Nov 15 16:37:58 2017       00:00 grep --color=auto nginx
     [www@ns545192 shop]$
     ```
+
+* ps -ef | grep 'selenium' | grep -v grep | cut -c 9-15 | xargs kill -9
+
+    批量杀死进程

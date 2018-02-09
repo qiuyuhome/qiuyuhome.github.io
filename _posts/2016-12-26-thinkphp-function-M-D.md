@@ -6,7 +6,7 @@ description: ThinkPHP中M()与D()的区别
 keywords: PHP, ThinkPHP
 ---
 
-# ThinkPHP中M()与D()的区别
+ThinkPHP中M()与D()的区别
 
 ### 需要解决的问题:
 什么时候用M(), 什么时候用D().
@@ -72,7 +72,8 @@ function D($name='',$layer='') {
     return $model;
 }
 ```
-```
+
+```php
 	/**
 	 * 测试方法
 	 */

@@ -6,11 +6,9 @@ description: 谷歌浏览器调试JS
 keywords: 调试js
 ---
 
-# 谷歌浏览器调试JS
-
 用控制台记录JS的结果, 什么类型都可以, 例如:
 
-```
+```js
     var test = 'aaaa';
     console.log(test);
 ```

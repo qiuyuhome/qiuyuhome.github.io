@@ -6,6 +6,8 @@ description: 搭建svn服务器
 keywords: svn
 ---
 
+svn, 我使用的第一款版本控制软件. 现在都是git的天下了.
+
 首先进入工作目录, 新建个文件夹, 用来存放svn.
 
 ```bash

@@ -6,6 +6,8 @@ description: MySQL中, 字段 = 字符串 + 字段, 处理方法
 keywords: MySQL
 ---
 
+mysql 查询结果拼接字符串.
+
 # MySQL中, 字段 = 字符串 + 字段, 处理方法
 
 今天在工作中, 遇到一个问题. 如下
@@ -15,13 +17,13 @@ keywords: MySQL
 
 我的第一个想法就是: 
 
-```
+```sql
 update tablename set field = '`' + field;
 ```
 
 可惜这样是不行的. 查找资料. 正确的方法如下:
 
-```
+```sql
 update tablename set field = concat('`', field);
 ```
 

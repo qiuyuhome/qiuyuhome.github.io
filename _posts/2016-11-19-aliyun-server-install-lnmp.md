@@ -6,7 +6,7 @@ description: 阿里云服务器在lnmp环境下搭建wordpress博客站点
 keywords: Linux, wordpress
 ---
 
-# 阿里云服务器在lnmp环境下搭建wordpress博客站点
+阿里云服务器在lnmp环境下搭建wordpress博客站点
 2016年11月19日 星期六
 author : qiuyu
 

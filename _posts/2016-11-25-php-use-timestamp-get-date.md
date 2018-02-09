@@ -8,7 +8,7 @@ keywords: PHP, 周的第一天, 周的最后一天
 
 # 根据时间戳, 获取月的第一天和最后一天, 周的第一天和最后一天
 
-```
+```php
 if ($time_type == 1) {
 	$begin_time = strtotime(date("Y", $time).'-'.date("m", $time).'-1');
 	$end_time = strtotime(date('Y-m', strtotime('next month')).'-1');

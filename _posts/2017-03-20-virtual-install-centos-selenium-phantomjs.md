@@ -58,7 +58,7 @@ https://www.oschina.net/question/928852_86769
 下载composer:
 curl -sS https://getcomposer.org/installer | php
 
-```
+```bash
 [root@CentOS7 test]# ll
 总用量 1796
 -rwxr-xr-x. 1 root root 1836198 3月  20 12:33 composer.phar
@@ -71,7 +71,7 @@ http://download.csdn.net/detail/tan3739/9678434
 
 安装jdk
 
-```
+```bash
 [root@CentOS7 test]# rpm -ivh jdk-8u111-linux-x64.rpm
 准备中...                          ################################# [100%]
 正在升级/安装...
@@ -90,7 +90,7 @@ Unpacking JAR files...
 
 是否安装成功, 查看版本
 
-```
+```bash
 [root@CentOS7 test]# java -version
 java version "1.8.0_111"
 Java(TM) SE Runtime Environment (build 1.8.0_111-b14)
@@ -100,7 +100,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.111-b14, mixed mode)
 
 运行
 
-```
+```bash
 [root@CentOS7 test]# java -jar selenium-server-standalone-3.3.1.jar
 14:52:47.065 INFO - Selenium build info: version: '3.3.1', revision: '5234b32'
 14:52:47.066 INFO - Launching a standalone Selenium Server
@@ -126,7 +126,7 @@ Unable to create new instances on this machine.
 
 这个时候就应该是一起启动服务了. 再看一个终端连接的窗口. 查看一下服务. 
 
-```
+```bash
 [root@CentOS7 test]# ps aux | grep java
 root     10176  0.7  4.4 2716864 44952 pts/0   Sl+  14:52   0:00 java -jar selenium-server-standalone-3.3.1.jar
 root     10213  0.0  0.0 112664   972 pts/1    S+   14:55   0:00 grep --color=auto java
@@ -243,7 +243,7 @@ function switchToEndWindow($driver){
 
 运行此脚本. 
 
-```
+```bash
 [root@CentOS7 test]# php test.php
 ����1：百度一下，你就知道
 ����2：WWE美摔100分 - WWE美国职业摔角在线观看

@@ -6,6 +6,8 @@ description: SSH 和 OpenSSH说明
 keywords: Linux, 计算机原理
 ---
 
+ssh 的简介.
+
 ## SSH是什么?
 **ssh**: 英文全称是 *Secure Shell Protocol* , 即*安全外壳协议* . 
 

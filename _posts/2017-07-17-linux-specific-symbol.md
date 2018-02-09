@@ -6,7 +6,9 @@ description: linux中特殊符号的意义
 keywords: linux
 ---
 
-```
+备忘
+
+```bash
 在shell中常用的特殊符号罗列如下：
 # ;    ;;       .       ,        /        \        'string'|        !    $    ${}    $?       $$    $*        "string"*      **    ?       :        ^       $#    $@        `command`{}     []       [[]]      ()     (())         ||    &&        {xx,yy,zz,...}~    ~+    ~-     &    \<...\>    +        -         %=    ==    !=                    
 

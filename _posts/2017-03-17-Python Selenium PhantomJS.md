@@ -8,7 +8,7 @@ keywords: Python, Selenium, PhantomJS
 
 # Python Selenium PhantomJS
 
-```
+```python
 from selenium import webdriver
  
 browser = webdriver.Chrome()
@@ -17,7 +17,7 @@ browser = webdriver.Chrome()
 
 报错. 
 
-```
+```bash
 ➜  test python demo.py
 Traceback (most recent call last):
   File "demo.py", line 3, in <module>

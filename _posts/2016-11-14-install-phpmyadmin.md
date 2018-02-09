@@ -6,6 +6,8 @@ description: 安装PHPMyAdmin
 keywords: PHPMyAdmin, php
 ---
 
+`PHPMyAdmin` 是 `MySQL` 的利器. 不管在哪里, 都可以使用. 所以. 我平时使用最多的. 就这个管理数据软件.
+
 # 安装PHPMyAdmin
 去官网下载
 [PHPMyAdmin官网](https://www.phpmyadmin.net/)
@@ -20,8 +22,7 @@ keywords: PHPMyAdmin, php
 * 编辑此配置文件. 
 我只修改了2个地方, 然后就可以使用了. 看注释就知道我是改的哪个地方了. 
 
-```
-
+```php
 /**
  * This is needed for cookie based authentication to encrypt password in
  * cookie. Needs to be 32 chars long.
@@ -75,9 +76,8 @@ session.gc_maxlifetime = 1440
 
 注意：`$cfg['LoginCookieValidity']`的值不能大于php.ini里的`session.gc_maxlifetime`的值，否则phpmyadmin 里会出现下面的错误
 
-```
-“您的 PHP 配置参数 session.gc_maxlifetime (外链，英文) 短于您在 phpMyAdmin 中设置的 Cookies 有效期，因此您的登录会话有效期将会比您在 phpMyAdmin 中设置的时间要更短。”
-```
+
+> “您的 PHP 配置参数 session.gc_maxlifetime (外链，英文) 短于您在 phpMyAdmin 中设置的 Cookies 有效期，因此您的登录会话有效期将会比您在 phpMyAdmin 中设置的时间要更短。”
 
 
 

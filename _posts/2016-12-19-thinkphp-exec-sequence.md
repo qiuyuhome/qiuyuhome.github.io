@@ -6,7 +6,7 @@ description: ThinkPHP学习笔记, 执行流程
 keywords: PHP, ThinkPHP
 ---
 
-# ThinkPHP学习笔记, 执行流程, 不断更新ing
+ThinkPHP学习笔记, 执行流程, 不断更新ing
 
 
 ## 入口文件
@@ -56,7 +56,7 @@ keywords: PHP, ThinkPHP
 6. 文件删除
 7. 读取文件信息
 
-```
+```php
     static public function connect($type='File',$options=array()) {
         $class  =   'Think\\Storage\\Driver\\'.ucwords($type);
         self::$handler = new $class($options);
@@ -75,7 +75,7 @@ keywords: PHP, ThinkPHP
 4. 行为扩展定义 `'tags'  =>  array(...);`
 
 #### 6. 加载核心文件
-```
+```php
     // 函数和类文件
     'core'      =>  array(
     	// 框架函数文件, 位置: /ThinkPHP/Common/functions.php
@@ -106,7 +106,7 @@ keywords: PHP, ThinkPHP
 
 引入`controller.class.php`, 有一个构造方法. 
 
-```
+```php
    /**
      * 架构函数 取得模板对象实例
      * @access public
@@ -140,7 +140,7 @@ keywords: PHP, ThinkPHP
 这里把这2个配置文件都合并到了`$_config`中.
 
 #### 8. 读取当前应用模式对应的配置文件
-```
+```php
     // 别名定义
     'alias'     =>  array(
         'Think\Log'               => CORE_PATH . 'Log'.EXT,
@@ -161,7 +161,7 @@ keywords: PHP, ThinkPHP
 就是加载项目中自定义的别名文件
 
 #### 10. 加载模式行为定义
-```
+```php
     // 行为扩展定义
     'tags'  =>  array(
         'app_init'     =>  array(
@@ -200,7 +200,7 @@ Hook类中有个私有的静态属性$tags. 就是把上面的配置赋值给它
 #### 13. 调试模式加载系统默认的配置文件
 `/ThinkPHP/Conf/debug.php`
 
-```
+```php
 /**
  * ThinkPHP 默认的调试模式配置文件
  */
@@ -240,7 +240,7 @@ return  array(
 #### 1. 根据上步, 运行`App::run();`
 运行应用实例 入口文件使用的快捷方法.
 
-```
+```php
    /**
      * 运行应用实例 入口文件使用的快捷方法
      * @access public
@@ -277,7 +277,7 @@ return  array(
 	这个文件就只是在这里用而已. 
 	
 	
-```
+```php
 	 	$varPath        =   C('VAR_PATHINFO');
         $varAddon       =   C('VAR_ADDON');
         $varModule      =   C('VAR_MODULE');
@@ -293,7 +293,7 @@ URL调度, 就是获取当前的controller, action, url, module, 等等都是什
 分析PATHINFO信息
 定义PAHTINFO的分隔符
 	
-```
+```php
 $depr = C('URL_PATHINFO_DEPR');
 define('MODULE_PATHINFO_DEPR',  $depr);
 ```
@@ -306,7 +306,7 @@ define('MODULE_PATHINFO_DEPR',  $depr);
 就是根据url, 实例化对应的类. 然后找到方法且执行方法.
 重点是: `self::invokeAction($module,$action);`
 
-```
+```php
 $method =   new \ReflectionMethod($module, $action);
 $method->invoke($module);
 ```

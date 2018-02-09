@@ -6,7 +6,7 @@ description: ThinkPHP中对Behavior的理解
 keywords: PHP, ThinkPHP
 ---
 
-# ThinkPHP中对Behavior的理解
+ThinkPHP中对Behavior的理解
 
 官方手册必须要先看几遍的. [CBD模式](http://www.kancloud.cn/manual/thinkphp/1699)
 
@@ -84,7 +84,7 @@ I
 怎么使用呢. 源码中就有例子:
 `/ThinkPHP/Library/Think/App.class.php`中使用了`Hook::listen()`.
 
-```
+```php
     /**
      * 运行应用实例 入口文件使用的快捷方法
      * @access public
@@ -112,7 +112,7 @@ I
 `Hook::listen()`是干什么的呢? 来看一下. 第一次使用`Hook:listen()`出入了参数:`app_init`. 我们来跟踪它.
 `/ThinkPHP/Library/Think/Hook.class.php`
 
-```
+```php
     /**
      * 监听标签的插件
      * @param string $tag 标签名称

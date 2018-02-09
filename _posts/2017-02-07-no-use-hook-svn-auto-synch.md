@@ -8,7 +8,6 @@ keywords: svn
 
 看公司的svn自动同步脚本, 学习一下. 用的不是svn自带的钩子.
 
-# 
 一般自启动的脚本, 都写在 `/etc/rc.d/rc.local`
 例如: zl测试服务器中
 

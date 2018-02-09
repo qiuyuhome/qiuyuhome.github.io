@@ -6,6 +6,7 @@ description: 获取IPv4和IPv6的URL
 keywords: IPv4, IPv6
 ---
 
+知识记录一下而已.
 
 ## IPv4
 http://v4.ip.zxinc.org/getip

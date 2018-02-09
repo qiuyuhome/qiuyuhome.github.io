@@ -1,4 +1,10 @@
-
+---
+layout: post
+title: php使用selenium
+categories: PHP
+description: php使用selenium
+keywords: PHP
+---
 
 参考: http://facebook.github.io/php-webdriver/latest/Facebook/WebDriver/Remote/RemoteWebDriver.html
 

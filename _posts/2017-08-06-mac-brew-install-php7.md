@@ -15,13 +15,13 @@ mac自带的php, 版本太低, 安装扩展也比较麻烦. 开发机, 没必要
 
 查找php7, 没有找到. 
 
-```
+```bash
 brew search php7
 ```
 
 google了一下, 使用以下命令. 我也不知道是什么意思. 
 
-```
+```bash
 brew tap homebrew/dupes
 
 brew tap homebrew/versions
@@ -33,7 +33,7 @@ brew tap homebrew/homebrew-php
 
 直接安装
 
-```
+```bash
 brew install php70
 ```
 
@@ -41,13 +41,13 @@ brew install php70
 
 在命令行中, 直接使用`php`, 还是原来的5.6版本. 
 
-```
+```bash
 ln -sf /usr/local/Cellar/php70/7.0.21_13/bin/php /usr/bin/php
 ```
 
 提示我没有权限. 
 
-```
+```bash
 ➜  bin ln -sf /usr/local/Cellar/php70/7.0.21_13/bin/php /usr/bin/php
 ln: /usr/bin/php: Operation not permitted
 ➜  bin
@@ -55,7 +55,7 @@ ln: /usr/bin/php: Operation not permitted
 
 你妹的. 输出环境变量看看
 
-```
+```bash
 ➜  bin echo $PATH
 /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 ➜  bin
@@ -63,7 +63,7 @@ ln: /usr/bin/php: Operation not permitted
 
 可以看到, `/usr/local/bin`的优先级比`/usr/bin`的高. 那我再试试软链到`/usr/local/bin`下. 
 
-```
+```bash
 ➜  bin ln -sf /usr/local/Cellar/php70/7.0.21_13/bin/php /usr/local/bin/php
 ➜  bin
 ```
@@ -72,7 +72,7 @@ ok, 没有问题.
 
 关闭当前终端, 重新打开. 
 
-```
+```bash
 ➜  ~ php -v
 PHP 7.0.21 (cli) (built: Jul 29 2017 09:17:51) ( NTS )
 Copyright (c) 1997-2017 The PHP Group

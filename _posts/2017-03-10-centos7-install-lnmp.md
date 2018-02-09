@@ -6,7 +6,7 @@ description: CentOS7下安装lnmp (CentOS7.3.1661, Nginx1.8.1, MySQL5.6.16, PHP5
 keywords: LNMP, CentOS, Linux
 ---
 
-# CentOS7下安装lnmp (CentOS7.3.1661, Nginx1.8.1, MySQL5.6.16, PHP5.6.30)
+CentOS7下安装lnmp (CentOS7.3.1661, Nginx1.8.1, MySQL5.6.16, PHP5.6.30)
 
 **部署环境**: 
 >
@@ -52,7 +52,7 @@ other software : yum安装
 
 ### yum安装必备包和依赖包
 
-```
+```bash
 yum install -y yum install -y make apr* autoconf automake curl curl-devel gcc gcc-c++ gtk+-devel zlib-devel openssl openssl-devel pcre-devel gd kernel keyutils patch perl kernel-headers compat* cpp glibc libgomp libstdc++-devel keyutils-libs-devel libsepol-devel libselinux-devel krb5-devel libXpm* freetype freetype-devel freetype* fontconfig fontconfig-devel libjpeg* libpng* php-common php-gd gettext gettext-devel ncurses* libtool* libxml2 libxml2-devel patch policycoreutils bison cmake libmcrypt
 ```
 
@@ -68,7 +68,7 @@ CentOs7版本默认情况下安装了mariadb-libs
 
 首先查询一下, 是否有安装了mysql
 
-```
+```bash
 [root@CentOS7 ~]# rpm -qa | grep mysql
 apr-util-mysql-1.5.2-6.el7.x86_64
 [root@CentOS7 ~]#
@@ -76,7 +76,7 @@ apr-util-mysql-1.5.2-6.el7.x86_64
 
 再查一下是否安装了mariadb
 
-```
+```bash
 [root@CentOS7 mysql]# rpm -qa | grep -i mariadb-libs
 mariadb-libs-5.5.52-1.el7.x86_64
 [root@CentOS7 mysql]#
@@ -84,11 +84,11 @@ mariadb-libs-5.5.52-1.el7.x86_64
 
 结果, 装了. 那么就卸载吧. 
 
-```
+```bash
 [root@CentOS7 mysql]# yum remove mariadb-libs-5.5.52-1.el7.x86_64
 ```
 
-```
+```bash
 移除  1 软件包 (+2 依赖软件包)
 
 安装大小：17 M
@@ -117,13 +117,13 @@ Running transaction
 
 在卸载的时候, 提示需要卸载2个依赖包. 这里得留意一下. 因为是先yum安装的依赖包, 所以这里卸载了. 可能依赖包就确实了. 为了保险起见. 再运行一次yum安装依赖包. 
 
-```
+```bash
 yum install -y yum install -y make apr* autoconf automake curl curl-devel gcc gcc-c++ gtk+-devel zlib-devel openssl openssl-devel pcre-devel gd kernel keyutils patch perl kernel-headers compat* cpp glibc libgomp libstdc++-devel keyutils-libs-devel libsepol-devel libselinux-devel krb5-devel libXpm* freetype freetype-devel freetype* fontconfig fontconfig-devel libjpeg* libpng* php-common php-gd gettext gettext-devel ncurses* libtool* libxml2 libxml2-devel patch policycoreutils bison cmake
 ```
 
 再查一下是否有安装过的mysql包
 
-```
+```bash
 [root@CentOS7 mysql]# rpm -qa | grep -i mysql
 [root@CentOS7 mysql]#
 [root@CentOS7 mysql]# rpm -qa | grep -i mariadb-libs
@@ -134,7 +134,7 @@ yum install -y yum install -y make apr* autoconf automake curl curl-devel gcc gc
 
 再查找一下mysql的目录. 存在就都删除掉. 
 
-```
+```bash
 [root@CentOS7 mysql]# find / -name mysql
 /etc/selinux/targeted/active/modules/100/mysql
 /usr/lib64/mysql
@@ -143,14 +143,14 @@ yum install -y yum install -y make apr* autoconf automake curl curl-devel gcc gc
 
 删除掉查找出来的mysql目录
 
-```
+```bash
 [root@CentOS7 mysql]# rm -rf /usr/lib64/mysql
 [root@CentOS7 mysql]# rm -rf /etc/selinux/targeted/active/modules/100/mysql
 ```
 
 再查一下是否还有mysql的目录
 
-```
+```bash
 [root@CentOS7 mysql]# find / -name mysql
 [root@CentOS7 mysql]#
 ```
@@ -161,7 +161,7 @@ ok, 删除干净了.
 
 ### 创建mysql安装目录, 创建mysql用户和组
 
-```
+```bash
 [root@CentOS7 mysql]# mkdir -p /usr/local/mysql/data
 [root@CentOS7 mysql]# groupadd mysql
 [root@CentOS7 mysql]# useradd -g mysql mysql -s /bin/nologin
@@ -172,7 +172,7 @@ ok, 删除干净了.
 
 进入源码包目录
 
-```
+```bash
 [root@CentOS7 mysql]# cd /usr/local/src/
 [root@CentOS7 src]# ll
 总用量 52960
@@ -186,14 +186,14 @@ ok, 删除干净了.
 
 解压mysql5.6, 进入解压后的目录
 
-```
+```bash
 [root@CentOS7 src]# tar zxvf mysql-5.6.35.tar.gz
 [root@CentOS7 src]# cd mysql-5.6.35
 ```
 
 执行`cmake`, 生成makefile文件. 
 
-```
+```bash
 cmake \
 -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
 -DMYSQL_DATADIR=/usr/local/mysql/data \
@@ -213,7 +213,7 @@ cmake \
 
 解释一下各个配置的意思(网上找的):
 
-```
+```bash
 # -DCMAKE_INSTALL_PREFIX=/usr/local/mysql56  \    #安装路径  
 # -DMYSQL_DATADIR=/usr/local/mysql/data      \    #数据文件存放位置  
 # -DSYSCONFDIR=/etc                         \    #my.cnf路径  
@@ -233,7 +233,7 @@ cmake \
 
 完成后, 出现了warning
 
-```
+```bash
 -- Configuring done
 -- Generating done
 CMake Warning:
@@ -251,7 +251,7 @@ CMake Warning:
 
 继续编译安装.
 
-```
+```bash
 [root@CentOS7 mysql-5.6.35]# make && make install
 ```
 
@@ -262,7 +262,7 @@ CMake Warning:
 
 先来看一下帮助的说明
 
-```
+```bash
 [root@CentOS7 mysql]# scripts/mysql_install_db --help
 Usage: scripts/mysql_install_db [OPTIONS]
   --basedir=path       The path to the MySQL installation directory.
@@ -309,7 +309,7 @@ Any other options are passed to the mysqld program.
 ```
 
 
-```
+```bash
 cd /usr/local/mysql
 chown -R mysql:mysql .    #(这里最后是有个.的大家要注意# 为了安全安装完成后请修改权限给root用户)
 scripts/mysql_install_db --user=mysql basedir=/usr/local/mysql --datadir=/usr/local/mysql/data     #(先进行这一步再做如下权限的修改)
@@ -322,20 +322,20 @@ chmod -R ug+rwx  .     #(赋予读写执行权限，其他用户权限一律删�
 **配置myssql的配置文件**
 下面的命令是将mysql的配置文件拷贝到`/etc`
 
-```
+```bash
 cp support-files/my-default.cnf  /etc/my.cnf
 ```
 
 修改my.cnf配置
 
-```
+```bash
 vi /etc/my.cnf
 ```
 
 设置mysql的配置文件. 以下是我在网上找的. 
 参考: https://blog.imdst.com/mysql-5-6-pei-zhi-you-hua/
 
-```
+```bash
 [client]
 port = 3306  
 socket = /tmp/mysql.sock
@@ -495,7 +495,7 @@ sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 
 把mysqld加入系统启动, 设置权限, 开机启动. 
 
-```
+```bash
 cp ./support-files/mysql.server /etc/rc.d/init.d/mysqld
 chmod 755 /etc/init.d/mysqld
 chkconfig mysqld on
@@ -503,7 +503,7 @@ chkconfig mysqld on
 
 编辑开机启动的mysqld文件. 
 
-```
+```bash
 vi /etc/rc.d/init.d/mysqld
 ```
 
@@ -513,39 +513,39 @@ vi /etc/rc.d/init.d/mysqld
 
 启动mysql
 
-```
+```bash
 [root@iZ28cww0nf3Z mysql]# service mysqld start
 Starting MySQL...                                          [  OK  ]
 ```
 
 把mysql加入环境变量中. 
 
-```
+```bash
 [root@iZ28cww0nf3Z mysql]# vi /etc/profile
 ```
 
 在最面新增一行
 
-```
+```bash
 export PATH=$PATH:/usr/local/mysql/bin
 ```
 
 退出保存, 然后让新加的环境变量立即生效
 
-```
+```bash
 [root@iZ28cww0nf3Z mysql]# source /etc/profile
 ```
 
 添加mysql.sock的软链
 
-```
+```bash
 [root@iZ28cww0nf3Z mysql]# mkdir /var/lib/mysql
 [root@iZ28cww0nf3Z mysql]# ln -s /tmp/mysql.sock /var/lib/mysql/mysql.sock
 ```
 
 ## 安装ngnix
 
-```
+```bash
 [root@CentOS7 ~]# groupadd www
 [root@CentOS7 ~]# useradd -g www www -s /bin/nologin
 [root@CentOS7 ~]# mkdir /usr/local/nginx
@@ -577,7 +577,7 @@ memcached-1.4.35.tar.gz  mysql-5.6.35  mysql-5.6.35.tar.gz  nginx-1.8.1.tar.gz  
 
 不用这个. 
 
-```
+```bash
 ./configure \
 --user=www \
 --group=www \
@@ -595,7 +595,7 @@ memcached-1.4.35.tar.gz  mysql-5.6.35  mysql-5.6.35.tar.gz  nginx-1.8.1.tar.gz  
 
 也不用这个. 
 
-```
+```bash
 ./configure \
 --user=www \
 --group=www \
@@ -613,7 +613,7 @@ memcached-1.4.35.tar.gz  mysql-5.6.35  mysql-5.6.35.tar.gz  nginx-1.8.1.tar.gz  
 
 用这个. 其他的默认就行了. 
 
-```
+```bash
 [root@iZ28cww0nf3Z nginx-1.4.4]# ./configure \
 --prefix=/usr/local/nginx \
 --user=www \
@@ -622,26 +622,26 @@ memcached-1.4.35.tar.gz  mysql-5.6.35  mysql-5.6.35.tar.gz  nginx-1.8.1.tar.gz  
 --with-pcre
 ```
 
-```
+```bash
 make && make install
 ```
 
 安装完毕后, 启动nginx
 
-```
+```bash
 [root@iZ28cww0nf3Z nginx-1.4.4]# /usr/local/nginx/sbin/nginx
 ```
 
 以后每次都这么启动太麻烦, 设置开机自动启动. 
 编辑文件:
 
-```
+```bash
 [root@iZ28cww0nf3Z nginx-1.4.4]# vi /etc/rc.d/init.d/nginx
 ```
 
 加入以下内容. 
 
-```
+```bash
 #!/bin/bash
 # nginx Startup script for the Nginx HTTP Server
 # it is v.0.0.2 version.
@@ -719,7 +719,7 @@ exit $RETVAL
 
 然后保存退出, 再设置一下该文件的权限.且加入开机启动. 
 
-```
+```bash
 [root@iZ28cww0nf3Z nginx-1.4.4]# chmod 775 /etc/rc.d/init.d/nginx
 [root@iZ28cww0nf3Z nginx-1.4.4]# chkconfig nginx on
 ```
@@ -731,7 +731,7 @@ exit $RETVAL
 
 重启nginx
 
-```
+```bash
 [root@iZ28cww0nf3Z nginx-1.4.4]# service nginx restart
 Stopping nginx:                                            [  OK  ]
 Starting nginx:                                            [  OK  ]
@@ -755,7 +755,7 @@ nginx进程的所属用户是nginx, 但是nginx的log文件是root, 为什么还
 
 需要先安装`libmcrypt`, 解压, 安装. 
 
-```
+```bash
 [root@iZ28cww0nf3Z php-5.5.7]# ./configure \
 --prefix=/usr/local/php \
 --with-config-file-path=/usr/local/php/etc \
@@ -791,13 +791,13 @@ nginx进程的所属用户是nginx, 但是nginx的log文件是root, 为什么还
 
 出现报错信息:
 
-```
+```bash
 configure: error: png.h not found.
 ```
 
 解决方案: 
 
-```
+```bash
 yum install libpng-devel
 ```
 
@@ -810,7 +810,7 @@ ok, 这次没有报错.
 
 然后安装
 
-```
+```bash
 [root@iZ28cww0nf3Z php-5.5.7]# make && make install
 ```
 
@@ -819,7 +819,7 @@ ok, 这次没有报错.
 开始配置php
 复制php配置文件到安装目录, 删除系统自带配置文件, 然后添加软链接
 
-```
+```bash
 [root@test php-5.6.30]# cp php.ini-production /usr/local/php/etc/php.ini
 [root@test php-5.6.30]# rm -rf /etc/php.ini
 [root@test php-5.6.30]# ln -s /usr/local/php/etc/php.ini /etc/php.ini
@@ -827,7 +827,7 @@ ok, 这次没有报错.
 
 拷贝模板文件为php-fpm配置文件, 然后编辑
 
-```
+```bash
 [root@test php-5.6.30]# cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf
 [root@test php-5.6.30]# vi /usr/local/php/etc/php-fpm.conf
 ```
@@ -849,7 +849,7 @@ ok, 这次没有报错.
 2. 添加执行权限
 3. 设置开机启动
 
-```
+```bash
 [root@test php-5.6.30]# cp /usr/local/src/php-5.6.30/sapi/fpm/init.d.php-fpm /etc/rc.d/init.d/php-fpm
 [root@test php-5.6.30]# chmod +x /etc/rc.d/init.d/php-fpm
 [root@test php-5.6.30]# chkconfig php-fpm on
@@ -868,7 +868,7 @@ ok, 这次没有报错.
 
 编辑nginx的配置文件
 
-```
+```bash
 [root@iZ28cww0nf3Z php-5.5.7]# vi /usr/local/nginx/conf/nginx.conf
 ```
 
@@ -879,7 +879,7 @@ ok, 这次没有报错.
 
 我的配置
 
-```
+```bash
 user  www www;
 worker_processes  1;
 
@@ -944,7 +944,7 @@ http {
 
 启动php-fpm
 
-```
+```bash
 service php-fpm start
 ```
 

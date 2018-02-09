@@ -1,16 +1,19 @@
 ---
 layout: post
-title: 获取IPv4和IPv6的URL
-categories: PHP
-description: 获取IPv4和IPv6的URL
-keywords: IPv4, IPv6
+title: screen下. 中文乱码问题解决方法
+categories: Linux
+description: screen下. 中文乱码问题解决方法
+keywords: Screen, Linux
 ---
 
 screen下. 中文乱码问题解决方法
 
-```
+```bash
 vi ~/.screenrc
+```
 
+
+```bash
 # 新增下面2行
 defencoding = UTF-8
 encoding = UTF-8
@@ -20,7 +23,7 @@ encoding = UTF-8
 
 在vim中输入
 
-```
+```bash
 :set encoding=utf-8
 
 ```

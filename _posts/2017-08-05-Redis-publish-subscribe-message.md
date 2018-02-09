@@ -6,11 +6,24 @@ description: Redis的高级实用特性——发布及订阅消息
 keywords: Redis
 ---
 
+**发布订阅(pub/sub)**是一种消息通信模式，主要的目的是解耦消息发布者和消息订阅者之间的耦合，这点和设计模式中的观察者模式比较相似。
+
+pub/sub不仅仅解决发布者和订阅者直接代码级别耦合也解决两者在物理部署上的耦合。
+
+Redis作为一个pub/sub的server，在订阅者和发布者之间起到了消息路由的功能。
+
+订阅者可以通过subscribe和psubscribe命令向redis server订阅自己感兴趣的消息类型，redis将消息类型称为通道(channel)。
+
+当发布者通过publish命令向redis server发送特定类型的消息时。
+
+订阅该消息类型的全部client都会收到此消息。这里消息的传递是多对多的。
+
+一个client可以订阅多个channel,也可以向多个channel发送消息。
+
 文章来源: http://blog.csdn.net/jiao_fuyou/article/details/17260743
 
-**发布订阅(pub/sub)**是一种消息通信模式，主要的目的是解耦消息发布者和消息订阅者之间的耦合，这点和设计模式中的观察者模式比较相似。pub/sub不仅仅解决发布者和订阅者直接代码级别耦合也解决两者在物理部署上的耦合。Redis作为一个pub/sub的server，在订阅者和发布者之间起到了消息路由的功能。订阅者可以通过subscribe和psubscribe命令向redis server订阅自己感兴趣的消息类型，redis将消息类型称为通道(channel)。当发布者通过publish命令向redis server发送特定类型的消息时。订阅该消息类型的全部client都会收到此消息。这里消息的传递是多对多的。一个client可以订阅多个channel,也可以向多个channel发送消息。
-
 下面做个实验。这里使用3不同的client, client1用于订阅tv1这个channel的消息，client2用于订阅tv1和tv2这2个chanel的消息，client3用于发布tv1和tv2的消息。
+
 
 ![](/images/posts/15019161162397.jpg)
 
@@ -28,7 +41,7 @@ keywords: Redis
 下面给出PHP的实现代码：
 
 
-```
+```php
 <?php  
   
 $redis = new Redis();  
@@ -42,7 +55,7 @@ $redis->publish('channel'.$channel, $msg);
 ?>  
 ```
 
-```
+```php
 <?php  
   
 $redis = new Redis();  

@@ -9,7 +9,7 @@ keywords: Git, Linux
 git的命令太常用了. 但是, 有一些命令用的很少, 用到的时候手忙脚乱的. 特此记录. 方便以后查阅.
 
 ### 命令解释
-```
+```bash
 -n --dry-run 
 Don’t actually remove any file(s). Instead, just show if they exist in the index and would otherwise be removed by the command.
 -r 
@@ -19,7 +19,7 @@ Use this option to unstage and remove paths only from the index. Working tree fi
 ```
 
 ### 命令
-```
+```bash
 git rm -r -n --cached "bin/" //-n：加上这个参数，执行命令时，是不会删除任何文件，而是展示此命令要删除的文件列表预览。
 git rm -r --cached  "bin/"      //最终执行命令. 
 git commit -m" remove bin folder all file out of control"    //提交
@@ -30,7 +30,7 @@ git push origin master   //提交到远程服务器
 
 ### 实际操作
 ##### 只是展示文件列表. 
-```
+```bash
 ➜  coupons_deals git:(master) ✗
 ➜  coupons_deals git:(master) ✗ git rm -r -n --cached "vendor/"
 rm 'vendor/.DS_Store'
@@ -54,7 +54,7 @@ rm 'vendor/facebook/webdriver/.coveralls.yml'
 ```
 
 ##### 清除git的版本控制. 且列出列表.
-```
+```bash
 ➜  coupons_deals git:(master) ✗ git rm -r --cached "vendor/"
 rm 'vendor/.DS_Store'
 rm 'vendor/.idea/modules.xml'
@@ -77,7 +77,7 @@ rm 'vendor/facebook/webdriver/.coveralls.yml'
 
 ##### 提交
 
-```
+```bash
 ➜  coupons_deals git:(master) ✗ git commit -m 'remove vendor folder all file out of git control'
 [master 9975fd2] remove vendor folder all file out of git control
  188 files changed, 39 insertions(+), 17071 deletions(-)
@@ -104,7 +104,7 @@ rm 'vendor/facebook/webdriver/.coveralls.yml'
 ```
  
 ##### 提交到远程
-```
+```bash
  ➜  coupons_deals git:(master) ✗ git push origin master
 Counting objects: 7, done.
 Delta compression using up to 4 threads.
@@ -118,7 +118,7 @@ To ssh://promo.302e.com:5022/qiuyu/coupons_deals.git
  
  
 ##### 查看
-```
+```bash
 ➜  coupons_deals git:(master) ✗ git status
 On branch master
 Your branch is up-to-date with 'origin/master'.
@@ -159,7 +159,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 如果想取消使用git add命令添加的文件的话，需要下面的命令：
 
-```
+```bash
 git rm –cached
 ```
 

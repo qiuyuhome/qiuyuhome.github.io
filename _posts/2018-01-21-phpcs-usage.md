@@ -22,7 +22,7 @@ keywords: PHP, Linux, phpcs
 
 使用也比较简单. 帮助文件也很短.
 
-```
+```bash
 ➜  coupons_deals git:(master) ✗ phpcs -h
 
 Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--colors] [--no-colors]
@@ -96,7 +96,7 @@ Usage: phpcs [-nwlsaepqvi] [-d key[=value]] [--colors] [--no-colors]
 
 **列出已经安装的规范**
 
-```
+```bash
 ➜  coupons_deals git:(master) ✗ phpcs -i
 The installed coding standards are MySource, PEAR, PSR1, PSR2, Squiz and Zend
 ➜  coupons_deals git:(master) ✗
@@ -104,7 +104,7 @@ The installed coding standards are MySource, PEAR, PSR1, PSR2, Squiz and Zend
 
 **使用指定的规范**
 
-```
+```bash
 ➜  coupons_deals git:(master) ✗ phpcs --standard=PSR2 couponsDeals.class.php
 ➜  coupons_deals git:(master) ✗
 ```

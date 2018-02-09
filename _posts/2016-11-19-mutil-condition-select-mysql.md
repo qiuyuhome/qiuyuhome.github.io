@@ -1,13 +1,15 @@
 ---
 layout: post
 title: 多条件查询时MYSQL语句的PHP写法
-categories: PHP
+categories: [PHP, SQL]
 description: 多条件查询时MYSQL语句的PHP写法
-keywords: PHP, 多条件查询
+keywords: PHP, 多条件查询, SQL
 ---
 
 # 多条件查询时MYSQL语句的PHP写法
+
 当有多个条件时sql查询语句怎么写呢?因为有时候并没有这个条件,是不是觉得一个一个if判断很麻烦呢?
+
 一般写法
 
 ```php

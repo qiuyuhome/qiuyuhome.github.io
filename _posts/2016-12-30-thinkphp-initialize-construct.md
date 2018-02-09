@@ -6,7 +6,6 @@ description: ThinkPHP中的__initialize()和类的构造函数__construct()
 keywords: PHP, ThinkPHP
 ---
 
-# ThinkPHP中的`__initialize()`和类的构造函数`__construct()`
 网上有很多关于`__initialize()`的说法和用法，总感觉不对头，所以自己测试了一下。将结果和大家分享。不对请更正。
 首先，我要说的是
 1、`__initialize()`不是php类中的函数，php类的构造函数只有`__construct()`.

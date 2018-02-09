@@ -6,16 +6,15 @@ description: ubuntu下的装php
 keywords: linux
 ---
 
-
 安装php源报错
 
-```
+```bash
 add-apt-repository ppa:ondrej/php
 ```
 
 解决方法:
 
-```
+```bash
 正确的方法是在终端中启用UTF-8支持。
 
 首先检查您的地点：
