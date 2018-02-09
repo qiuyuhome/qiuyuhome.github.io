@@ -8,7 +8,6 @@ title: QiuYu Blog
 subtitle: "The record bit by bit, are the mark of my growth"
 description: "邱宇的个人博客"
 keywords: 邱宇, QiuYu, qiuyu, PHP, 技术博客, linux, 邱宇博客
-favicon: /favicon.ico
 timezone: Asia/Shanghai
 encoding: "utf-8"
 side_bar_repo_limit: 5
@@ -18,9 +17,10 @@ side_bar_repo_limit: 5
 # ---------------- #
 author: QiuYu
 organization: zjmedia, Inc.
-organization_url: https://www.zjmedia.com
+organization_url: https://promopure.com
+github_username: qiuyuhome
 location: Beijing, China
-email: 530004000@qq.com
+email: qiuyuhome.com@gmail.com
 
 # ---------------- #
 #    Navigation    #
@@ -32,7 +32,7 @@ navs:
 
   -
     href: /categories/
-    label: categories
+    label: Categories
 
   -
     href: /QA/
@@ -40,15 +40,15 @@ navs:
 
   -
     href: /wiki/
-    label: wiki
+    label: Wiki
 
   -
     href: /links/
-    label: links
+    label: Links
 
   -
     href: /about/
-    label: about
+    label: About
 
 # ---------------- #
 #       RSS        #
@@ -84,16 +84,6 @@ collections:
 repository: qiuyuhome/qiuyuhome.github.io
 
 # ---------------- #
-#      Socials     #
-# ---------------- #
-github_username: qiuyuhome
-# douban_username: freedim
-# facebook_username: mzlogin
-# weibo_username: mzlogin
-# zhihu_username: mzlogin
-# twitter_username: mzlogin
-
-# ---------------- #
 #      Comments    #
 # ---------------- #
 # support provider: disqus, gitment, gitalk
@@ -101,15 +91,15 @@ comments_provider: gitalk
 # !!!重要!!! 请修改下面这些信息为你自己申请的
 # !!!Important!!! Please modify infos below to yours
 # https://disqus.com
-disqus:
-    username:
+#disqus:
+#    username:
 # https://imsun.net/posts/gitment-introduction/
-gitment:
-    owner: mzlogin
-    repo: blog-comments
-    oauth:
-        client_id: d2e1cbbd298958076462
-        client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+#gitment:
+#    owner: qiuyuhome
+#    repo: blog-comments
+#    oauth:
+#        client_id: 7da50a3552e40770b2a3
+#        client_secret: 9d812e8735398ef87d50ef14a75d62a20b9f6939
 # https://github.com/gitalk/gitalk#install
 gitalk:
     owner: qiuyuhome
@@ -124,8 +114,3 @@ lazy_load_disqus : false
 # ---------------- #
 google:
     analytics_id: UA-112779025-1
-
-# ---------------- #
-#      Datas       #
-# ---------------- #
-skill_software_keywords: [PHP, HTML, C, JavaScrip, Jquery, Linux, CenOS]
