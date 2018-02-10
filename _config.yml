@@ -21,6 +21,15 @@ organization_url: https://promopure.com
 github_username: qiuyuhome
 location: Beijing, China
 email: qiuyuhome.com@gmail.com
+skill_software_keywords:
+  keywords:
+    - PHP
+    - HTML
+    - JavaScript
+    - Python
+    - Lavarel
+    - Linux
+    - C
 
 # ---------------- #
 #    Navigation    #
