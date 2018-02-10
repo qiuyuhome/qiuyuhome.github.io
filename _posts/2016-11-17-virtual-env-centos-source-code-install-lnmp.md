@@ -18,7 +18,7 @@ so, 我又开始安装了.
 
 
 		
-	```
+	```bash
 	vi /etc/sysconfig/iptables
 	-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT #允许80端口通过防火墙
 	-A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 3306 -j ACCEPT #允许3306端口通过防火墙
@@ -30,7 +30,7 @@ so, 我又开始安装了.
 			
 4. 关闭SELinux
 
-	```
+	```bash
 	vi /etc/selinux/config
 	#SELINUX=enforcing #注释掉
 	#SELINUXTYPE=targeted #注释掉
@@ -79,15 +79,15 @@ so, 我又开始安装了.
 
 使用CentOS yum命令一键安装
 
-```	
-	yum install -y make apr* autoconf automake curl curl-devel gcc gcc-c++ gtk+-devel zlib-devel openssl openssl-devel pcre-devel gd kernel keyutils patch perl kernel-headers compat* cpp glibc libgomp libstdc++-devel keyutils-libs-devel libsepol-devel libselinux-devel krb5-devel libXpm* freetype freetype-devel freetype* fontconfig fontconfig-devel libjpeg* libpng* php-common php-gd gettext gettext-devel ncurses* libtool* libxml2 libxml2-devel patch policycoreutils bison
+```	bash
+yum install -y make apr* autoconf automake curl curl-devel gcc gcc-c++ gtk+-devel zlib-devel openssl openssl-devel pcre-devel gd kernel keyutils patch perl kernel-headers compat* cpp glibc libgomp libstdc++-devel keyutils-libs-devel libsepol-devel libselinux-devel krb5-devel libXpm* freetype freetype-devel freetype* fontconfig fontconfig-devel libjpeg* libpng* php-common php-gd gettext gettext-devel ncurses* libtool* libxml2 libxml2-devel patch policycoreutils bison
 ```
 
-	Linux/centos Header V3 DSA signature: NOKEY, key ID
-		错误解决方法: rpm --import /etc/pki/rpm-gpg/RPM* 
-	Transaction Check Error:file /usr/lib64/libxcb-icccm.so.1.0.0 from install......
-		错误解决方法: yum remove libxcb*, 然后再安装.
-	这样, yum安装后就没有错误提示了.
+Linux/centos Header V3 DSA signature: NOKEY, key ID
+	错误解决方法: rpm --import /etc/pki/rpm-gpg/RPM* 
+Transaction Check Error:file /usr/lib64/libxcb-icccm.so.1.0.0 from install......
+	错误解决方法: yum remove libxcb*, 然后再安装.
+这样, yum安装后就没有错误提示了.
 
 
 ## 软件安装篇

@@ -76,11 +76,4 @@ session.gc_maxlifetime = 1440
 
 注意：`$cfg['LoginCookieValidity']`的值不能大于php.ini里的`session.gc_maxlifetime`的值，否则phpmyadmin 里会出现下面的错误
 
-
 > “您的 PHP 配置参数 session.gc_maxlifetime (外链，英文) 短于您在 phpMyAdmin 中设置的 Cookies 有效期，因此您的登录会话有效期将会比您在 phpMyAdmin 中设置的时间要更短。”
-
-
-
-
-
-

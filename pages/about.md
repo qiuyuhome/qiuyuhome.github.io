@@ -25,7 +25,6 @@ permalink: /about/
 
 ## Skill Keywords
 
-#### Software Engineer Keywords
 <div class="btn-inline">
     {% for keyword in site.skill_software_keywords %}
     <button class="btn btn-outline" type="button">{{ keyword }}</button>
