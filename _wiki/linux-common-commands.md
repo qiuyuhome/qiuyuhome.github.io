@@ -34,3 +34,7 @@ keywords: Linux
 * ps -ef | grep 'selenium' | grep -v grep | cut -c 9-15 | xargs kill -9
 
     批量杀死进程
+
+* sudo spctl --master-disable
+
+    `mac` 中, 禁用安全策略. 在安装软件的时候, 如果提示软件已书损坏, 则可以使用此命令. 就能正确打开了.
