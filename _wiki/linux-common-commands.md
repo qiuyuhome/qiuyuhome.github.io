@@ -38,3 +38,7 @@ keywords: Linux
 * sudo spctl --master-disable
 
     `mac` 中, 禁用安全策略. 在安装软件的时候, 如果提示软件已书损坏, 则可以使用此命令. 就能正确打开了.
+
+* ps -ef | grep run.php | grep -v 'grep' | awk '{print$2}'
+
+    只显示 `run.php` 进程的 `pid`
