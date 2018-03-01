@@ -31,7 +31,7 @@ keywords: Linux
     [www@ns545192 shop]$
     ```
 
-* `ps -ef | grep 'selenium' | grep -v grep | cut -c 9-15 | xargs kill -9`
+* `ps -ef | grep 'chrome' | grep -v grep | cut -c 9-15 | xargs kill -9`
 
     批量杀死进程
 
@@ -42,3 +42,7 @@ keywords: Linux
 * `ps -ef | grep run.php | grep -v 'grep' | awk '{print$2}'`
 
     只显示 `run.php` 进程的 `pid`
+
+* `ps -eo pid,ppid,command | grep 'chrome' | grep -v grep | awk '{print$1}' | xargs kill -9`
+
+    批量杀死进程
