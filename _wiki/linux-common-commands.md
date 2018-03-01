@@ -12,7 +12,7 @@ keywords: Linux
 
     后台启动进程. 输入输出指定到文件中.
 
-* ps -eo pid,lstart,etime,cmd | grep nginx
+* `ps -eo pid,lstart,etime,cmd | grep nginx`
 
     查看 `linux` 进程的运行时常.
 
@@ -31,14 +31,14 @@ keywords: Linux
     [www@ns545192 shop]$
     ```
 
-* ps -ef | grep 'selenium' | grep -v grep | cut -c 9-15 | xargs kill -9
+* `ps -ef | grep 'selenium' | grep -v grep | cut -c 9-15 | xargs kill -9`
 
     批量杀死进程
 
-* sudo spctl --master-disable
+* `sudo spctl --master-disable`
 
     `mac` 中, 禁用安全策略. 在安装软件的时候, 如果提示软件已书损坏, 则可以使用此命令. 就能正确打开了.
 
-* ps -ef | grep run.php | grep -v 'grep' | awk '{print$2}'
+* `ps -ef | grep run.php | grep -v 'grep' | awk '{print$2}'`
 
     只显示 `run.php` 进程的 `pid`
