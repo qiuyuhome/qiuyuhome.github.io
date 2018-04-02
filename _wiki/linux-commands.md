@@ -21,3 +21,17 @@ php: aliased to /Applications/MAMP/bin/php/php7.1.8/bin/php -c "/Library/Applica
 ➜  bin
 ```
 
+### tee
+
+tee命令用于将数据重定向到文件，另一方面还可以提供一份重定向数据的副本作为后续命令的stdin。简单的说就是把数据重定向到给定文件和屏幕上.
+
+```shell
+➜  test ll | tee tee.log
+total 0
+-rw-r--r--  1 qiuyu  staff     0B  4  2 21:46 tee.log
+➜  test tail tee.log
+total 0
+-rw-r--r--  1 qiuyu  staff     0B  4  2 21:46 tee.log
+➜  test
+```
+
