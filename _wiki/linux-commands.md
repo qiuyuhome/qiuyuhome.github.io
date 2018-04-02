@@ -25,6 +25,10 @@ php: aliased to /Applications/MAMP/bin/php/php7.1.8/bin/php -c "/Library/Applica
 
 tee命令用于将数据重定向到文件，另一方面还可以提供一份重定向数据的副本作为后续命令的stdin。简单的说就是把数据重定向到给定文件和屏幕上.
 
+它与重定向命令的不同之处在于达到重定向效果的同时，还能在屏观察输出.
+
+参数 -a 表示将输出添加到 File 的末尾而不是覆盖写入.
+
 ```shell
 ➜  test ll | tee tee.log
 total 0
