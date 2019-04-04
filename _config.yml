@@ -123,3 +123,5 @@ lazy_load_disqus : false
 # ---------------- #
 google:
     analytics_id: UA-112779025-1
+
+theme: jekyll-theme-hacker
