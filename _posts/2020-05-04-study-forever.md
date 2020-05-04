@@ -11,7 +11,7 @@ typora-root-url: "/Users/qiuyu/code/blog/qiuyuhome.github.io"
 
 
 
-# 2 年前的我和 现在的我
+# 2 年前的我和 现在的我...
 
 
 
