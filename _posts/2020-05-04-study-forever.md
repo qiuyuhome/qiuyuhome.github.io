@@ -11,10 +11,10 @@ typora-root-url: "/Users/qiuyu/code/blog/qiuyuhome.github.io"
 
 
 
-# 2 年前的我和 现在的我...
+# 2 年前的我和 现在的我....
 
 
 
-![8D25D33E-DB1B-4EB3-B9ED-E127141AA6AF](../images/posts/8D25D33E-DB1B-4EB3-B9ED-E127141AA6AF-8570775.jpeg)
+![8D25D33E-DB1B-4EB3-B9ED-E127141AA6AF](/../../../../../../../images/posts/8D25D33E-DB1B-4EB3-B9ED-E127141AA6AF-8571981.jpeg)
 
 这个今晚, 夜深人静的时候, 慢慢写. 
