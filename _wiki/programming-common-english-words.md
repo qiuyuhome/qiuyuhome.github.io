@@ -36,4 +36,8 @@ keywords: words, string
 | SAPI            | Server Application Programming Interface | 服务器端应用编程端口 |                                                                                                                                                                                                   |
 |                 |                                          |                  |                                                                                                                                                                                                   |
 
+*   Atomicity 原子性
+*   Ordering 有序性
+*   Visibility 可见性
+*   mutex
 
